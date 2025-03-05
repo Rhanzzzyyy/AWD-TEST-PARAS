@@ -1,27 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
-header {
-    background-color: #000000;
+
+body {
+    background-color: black;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-nav {
-    background-color: #333;
     overflow: hidden;
 }
-nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+
+
+/* Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 100;
 }
-nav a:hover {
-    background-color: #333;
-    color: black;
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    color: cyan;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+ul li a:hover {
+    color: white;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* Social Icons */
+.social-icons img {
+    width: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
 }
