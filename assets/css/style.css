@@ -13,25 +13,24 @@ body {
     overflow: hidden;
 }
 
-
-/* Navigation Bar */
+/* Header */
 header {
-    position: fixed;
-    top: 0;
+    position: absolute;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    z-index: 100;
+    z-index: 10;
 }
 
 nav {
-    display: flex;
-    align-items: center;
     width: 100%;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
 }
 
 ul {
@@ -40,20 +39,81 @@ ul {
     gap: 20px;
 }
 
-ul li {
-    display: inline-block;
-}
-
 ul li a {
     color: cyan;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
 }
 
 ul li a:hover {
     color: white;
-    text-shadow: 0 0 10px cyan;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: cyan;
+}
+
+/* Animated Background */
+#hero {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: url('arcade-bg.jpg') repeat;
+    animation: moveBackground 15s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+/* About Section */
+.hero-section {
+    position: relative;
+    text-align: center;
+    padding: 100px 50px;
+    z-index: 2;
+}
+
+.glow-text {
+    font-size: 36px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px white;
+    margin-bottom: 20px;
+}
+
+.team-description {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: cyan;
+}
+
+/* Team Photos */
+.team-photos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.team-photos img {
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-photos img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px cyan;
 }
 
 /* Social Icons */
