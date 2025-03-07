@@ -134,13 +134,15 @@ body {
 .carousel-control-prev,
 .carousel-control-next {
     z-index: 4; /* Ensure controls are above overlay */
+    opacity: 0.8;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: cyan;
+    background-color: transparent; /* Changed from cyan to transparent */
     border-radius: 50%;
     padding: 10px;
+    filter: brightness(1.5); /* Makes the arrows brighter if needed */
 }
 
 .carousel-indicators {
