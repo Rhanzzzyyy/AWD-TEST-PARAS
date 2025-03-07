@@ -45,7 +45,8 @@ body {
 .navbar-nav .nav-link {
     color: white;
     font-size: 16px;
-    padding: 8px 12px;
+    padding: 15px 20px;
+    margin: 0 15px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -53,7 +54,36 @@ body {
 }
 
 .navbar-nav .nav-link i {
-    font-size: 18px;
+    font-size: 15px;
+}
+
+.nav-icons {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    margin-right: 15px;
+}
+
+.nav-icons .nav-link {
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.nav-icons .nav-link:hover {
+    color: cyan;
+}
+
+.nav-icons .nav-link i {
+    font-size: 20px;
 }
 
 /* Hero and Carousel Container */
