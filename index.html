@@ -2,40 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Paras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paras - Gaming Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/index.html" class="hover-effect">HOME</a></li>
-                <li><a href="./index.html" class="hover-effect">ABOUT US</a></li>
-            </ul>
-            <div class="logo">PARAS</div>
-            <ul class="social-icons">
-                <li><a href="https://www.facebook.com" target="_blank">
-                    <i class="fa-brands fa-facebook"></i>
-                </a></li>
-                <li><a href="https://www.intagram.com" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Arcade Background Animation -->
-    <div id="hero"></div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container">
+        <!-- Left Links -->
+        <div class="d-flex align-items-center">
+            <a class="nav-link me-3" href="#">HOME</a>
+            <a class="nav-link" href="#">ABOUT US</a>
+        </div>
+        
+        <!-- Center Logo -->
+        <div class="mx-auto text-center">
+            <a class="navbar-brand" href="#">
+                <span class="logo">PARAS</span>
+                <span class="subtitle">THE ULTIMATE GAMING HUB</span>
+            </a>
+        </div>
+        
+        <!-- Right Links -->
+        <div class="d-flex align-items-center">
+            <a class="nav-link me-2" href="#">LOGIN</a>
+            <a class="nav-link me-3" href="#">SIGN UP</a>
+            <div class="social-icons">
+                <a class="nav-link me-2 d-inline-block" href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a class="nav-link me-2 d-inline-block" href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a class="nav-link d-inline-block" href="#"><i class="fa-brands fa-x"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-        <section class="hero-section">
-        <p class="team-description">
-        <h1>WELCOME TO <span class="glow-text">PARAS</span></h1>
-        <p class="tagline">"Connect. Compete. Stay Updated."</p>
+<!-- Hero Section with Carousel -->
+<section class="hero-carousel-container">
+    <!-- Carousel Section -->
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/img/headline image.png" class="d-block w-100" alt="Game 1">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/headline image.png" class="d-block w-100" alt="Game 2">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/headline image.png" class="d-block w-100" alt="Game 3">
+            </div>
+        </div>
 
-    </section>
+        <!-- Overlay for dimming the carousel images -->
+        <div class="carousel-overlay"></div>
 
-    <script src="./assets/js/scripts.js"></script>
+        <!-- Centered hero content on top of carousel -->
+        <div class="hero-content">
+            <h1 class="hero-title">WELCOME TO <span class="paras">PARAS</span></h1>
+            <p class="hero-subtitle">"Connect. Compete. Stay Updated."</p>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"></button>
+        </div>
+    </div>
+</section>
+
+<script src="./assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
