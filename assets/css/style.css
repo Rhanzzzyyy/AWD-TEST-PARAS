@@ -180,6 +180,186 @@ body {
     bottom: 20px;
 }
 
+/* Tournament Sections */
+.tournaments-section {
+    padding: 0;
+    margin: 0;
+}
+
+.tournament-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height like the carousel */
+    max-height: 800px; /* Match carousel max-height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tournament-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.tournament-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.tournament-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    /* Move text up by adding a negative margin-top */
+    margin-top: -80px;
+}
+
+.tournament-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 90px; /* Smaller font size as requested */
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.tetris-container .tournament-title {
+    color: #ff00ff; /* Magenta for Tetris */
+    /* Removed glow effect */
+}
+
+.tekken-container .tournament-title {
+    color: #ff3333; /* Red for Tekken */
+    /* Removed glow effect */
+}
+
+.tournament-white {
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    /* Removed glow effect */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .tournament-title {
+        font-size: 80px;
+    }
+    .tournament-text {
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tournament-title {
+        font-size: 60px;
+    }
+    
+    .tournament-container {
+        height: 70vh;
+    }
+    
+    .tournament-text {
+        margin-top: -40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tournament-title {
+        font-size: 30px;
+    }
+    
+    .tournament-container {
+        height: 60vh;
+    }
+    
+    .tournament-text {
+        margin-top: -30px;
+    }
+}
+
+/* Arcade Section */
+.arcade-section {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.arcade-container {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Reduced height to make it thinner */
+}
+
+.arcade-container img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+/* copyright text */
+.copyright-text {
+    text-align: center;
+    color: #00f2ff;
+    padding: 15px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: #000;
+    width: 100%;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #000;
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+}
+
+.footer-line {
+    height: 1px;
+    background-color: #00f2ff;
+    opacity: 0.3;
+    width: 100%;
+}
+
+.footer-content {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+.paras-text {
+    color: #00f2ff;
+    font-weight: 500;
+}
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .arcade-container {
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arcade-container {
+        max-height: 100px;
+    }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar-nav {
@@ -197,5 +377,13 @@ body {
 
     .carousel-inner {
         height: 70vh;
+    }
+    
+    .tournament-title {
+        font-size: 36px;
+    }
+    
+    .tournament-container {
+        height: 200px;
     }
 }
