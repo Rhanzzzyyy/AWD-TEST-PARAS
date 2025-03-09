@@ -2,48 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Paras</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paras - Gaming Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/index.html" class="hover-effect">HOME</a></li>
-                <li><a href="./index.html" class="hover-effect">ABOUT US</a></li>
-            </ul>
-            <div class="logo">PARAS</div>
-            <ul class="social-icons">
-                <li><a href="https://www.facebook.com" target="_blank">
-                    <i class="fa-brands fa-facebook"></i>
-                </a></li>
-                <li><a href="https://www.intagram.com" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <!-- Left Links -->
+            <div class="navbar-nav me-auto">
+                <a class="nav-link" href="../../index.html">HOME</a>
+                <a class="nav-link" href="./index.html">ABOUT US</a>
+            </div>
+
+            <!-- Center Logo -->
+            <a class="navbar-brand mx-auto logo-container" href="#">
+                <span class="logo">PARAS</span>
+                <span class="subtitle">THE ULTIMATE GAMING HUB</span>
+            </a>
+
+            <!-- Right Links -->
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="#">LOGIN</a>
+                <a class="nav-link" href="#">SIGN UP</a>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-icons">
+        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a class="nav-link" href="#"><i class="fa-brands fa-x"></i></a>
+    </div>
 
     <!-- Arcade Background Animation -->
     <div id="arcade-bg"></div>
 
-    <section class="about-section">
-        <h1 class="glow-text">OUR TEAM</h1>
-        <p class="team-description">
-            At <span class="highlight">PARAS</span>, we are a passionate team dedicated to building a thriving gaming community where players can connect, compete, and stay updated.
-            Founded by <strong>Rhanz Soberano, Renz Sol, Vincent Vivas, and Chilly Bonnevie</strong>, we bring innovation, creativity, and engagement to every aspect of the platform.
-        </p>
-
-        <div class="team-photos">
-            <img src="team1.jpg" alt="Team Member 1">
-            <img src="team2.jpg" alt="Team Member 2">
-            <img src="team3.jpg" alt="Team Member 3">
-            <img src="team4.jpg" alt="Team Member 4">
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-content">
+            <div class="team-header">
+                <div class="team-icon">-</div>
+                <h1 class="team-title">OUR TEAM</h1>
+            </div>
+            <p class="team-description">
+                At <span class="highlight">PARAS</span>, we provide a dedicated platform for competitive <span class="tetris-highlight">Tetris</span> and <span class="valorant-highlight">Valorant</span> tournaments, bringing together skilled players and passionate organizers. Founded by <strong>Rhanz Soberano, Vincent Vivas, Renz Sol, and Chilly Bonnevie</strong> our goal is to create a seamless and exciting competition space for gamers. As a platform built by players for players, PARAS ensures fair play, structured matchmaking, and smooth tournament management.
+            </p>
+            <div class="team-photos">
+                <img src="../../assets/img/about us chilly.jpg" alt="Chilly Bonnevie">
+                <img src="../../assets/img/about us rhanz.jpg" alt="Rhanz Soberano">
+                <img src="../../assets/img/about us renz.jpg" alt="Renz Sol">
+                <img src="../../assets/img/about us vincent.jpg" alt="Vincent Vivas">
+            </div>
         </div>
     </section>
 
+    <!-- Mission and Vision Sections -->
+    <div class="container">
+        <div class="info-sections">
+            <div class="mission-section">
+                <h2 class="section-title">Mission</h2>
+                <p class="section-content">
+                    Our mission is to create a competitive and engaging tournament platform for 
+                    <span class="tetris-highlight">Tetris</span> and <span class="valorant-highlight">Valorant</span> players, providing a
+                    seamless experience for both players and organizers. We aim to foster a fair, 
+                    exciting, and well-structured esports environment where gamers can showcase 
+                    their skills and compete at their best.
+                </p>
+            </div>
+            <div class="vision-section">
+                <h2 class="section-title">Vision</h2>
+                <p class="section-content">
+                    We envision a premier online destination for 
+                    <span class="tetris-highlight">Tetris</span> and <span class="valorant-highlight">Valorant</span> tournaments, recognized 
+                    for its user-friendly interface, competitive integrity, and passionate community. Our goal 
+                    is to expand and evolve, becoming the go-to platform for structured and high-quality 
+                    esports competitions in these iconic games.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        ©2025 PARAS - eSports tournament scheduling
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
