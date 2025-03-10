@@ -447,26 +447,132 @@ body {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 24px;
-    }
-    
-    .subtitle {
-        font-size: 8px;
-    }
-    
-    .glow-text {
-        font-size: 28px;
-    }
-    
-    .team-photos img {
-        width: 150px;
-        height: 150px;
+@media (min-width: 992px) {
+    .footer {
+        margin-bottom: 0; /* Reset margin for desktop */
     }
 }
 
+/* Large Tablets and Small Desktops */
+@media (max-width: 1200px) {
+    .tournament-title {
+        font-size: 70px;
+    }
+
+    .tournament-text {
+        margin-top: -60px;
+    }
+
+    .hero-title {
+        font-size: 70px;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .tournament-title {
+        font-size: 60px;
+    }
+
+    .tournament-container {
+        height: 70vh;
+        max-height: 600px;
+    }
+
+    .tournament-text {
+        margin-top: -40px;
+    }
+
+    .hero-title {
+        font-size: 60px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .carousel-inner {
+        height: 80vh;
+        max-height: 600px;
+    }
+
+    .arcade-container {
+        max-height: 150px;
+    }
+}
+
+/* Large Phones */
+@media (max-width: 768px) {
+    .tournament-title {
+        font-size: 40px;
+    }
+
+    .tournament-container {
+        height: 50vh;
+        max-height: 400px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .carousel-inner {
+        height: 60vh;
+        max-height: 500px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 576px) {
+    .tournament-title {
+        font-size: 28px;
+    }
+
+    .tournament-container {
+        height: 40vh;
+    }
+
+    .tournament-text {
+        margin-top: -20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .carousel-inner {
+        height: 50vh;
+    }
+
+    .arcade-container {
+        max-height: 100px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+    }
+}
 strong {
     color: #00f2ff;
 }
