@@ -52,12 +52,23 @@ body {
     margin: 0 15px;
 }
 
-.navbar-nav .nav-link:hover {
-    color: cyan;
+/* Adjustments for login and signup links in the navbar */
+.navbar-nav .nav-link i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 16px; /* Consistent icon size */
+    vertical-align: middle; /* Align icon with text */
 }
 
-.navbar-nav .nav-link i {
-    font-size: 15px;
+/* Specifically target the right side navbar links */
+.navbar-nav.ms-auto .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: cyan;
 }
 
 .nav-icons {
@@ -447,6 +458,7 @@ body {
     }
 }
 
+/* Media Queries for Responsiveness */
 @media (min-width: 992px) {
     .footer {
         margin-bottom: 0; /* Reset margin for desktop */
@@ -502,6 +514,12 @@ body {
 
     .arcade-container {
         max-height: 150px;
+    }
+    
+    /* Adjust login/signup links for mobile */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 8px 12px;
+        margin: 5px 0;
     }
 }
 
@@ -571,6 +589,17 @@ body {
 
     .subtitle {
         font-size: 8px;
+    }
+
+    /* Further adjustments for very small screens */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .navbar-nav.ms-auto .nav-link i {
+        font-size: 14px;
+        margin-right: 5px;
     }
 }
 strong {
