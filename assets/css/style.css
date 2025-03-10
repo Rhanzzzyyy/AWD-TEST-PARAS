@@ -111,6 +111,19 @@ body {
     color: cyan;
 }
 
+/* Mobile logo fix */
+@media (max-width: 991px) {
+    .logo-container-mobile {
+        margin-right: auto;
+        margin-left: 0;
+        text-align: left;
+    }
+    
+    .navbar-toggler {
+        margin-left: auto;
+    }
+}
+
 /* Media query for mobile view - IMPORTANT FIX */
 @media (max-width: 991px) {
     /* This will ensure the desktop icons are completely hidden on mobile */
