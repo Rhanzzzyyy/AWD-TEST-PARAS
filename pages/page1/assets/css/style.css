@@ -272,8 +272,8 @@ body {
 }
 
 .team-photos img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 400px;
     object-fit: cover;
     border: 3px solid cyan;
     transition: all 0.3s;
@@ -328,3 +328,11 @@ strong {
 .footer { text-align: center;
     color: #00f2ff;
     font-size: 14px;}
+
+.Rhanz {color : #a800a0;}
+
+.Vincent {color : #5d009b;}
+
+.Renz {color : #be6c00;}
+
+.Chilly {color : #009407;}
