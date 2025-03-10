@@ -201,6 +201,63 @@ body {
 .nav-icons .nav-link i {
     font-size: 20px;
 }
+
+/* Mobile social icons styles */
+.nav-icons-mobile {
+    display: none; /* Hidden by default */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 8px 0;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.nav-icons-mobile .nav-link {
+    color: white;
+    padding: 8px 20px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-icons-mobile .nav-link:hover {
+    color: cyan;
+}
+
+/* Media query for mobile view - IMPORTANT FIX */
+@media (max-width: 991px) {
+    /* This will ensure the desktop icons are completely hidden on mobile */
+    .nav-icons {
+        display: none !important; /* Added !important to override any other styles */
+        visibility: hidden; /* Double protection to ensure it's hidden */
+        opacity: 0;
+    }
+    
+    .nav-icons-mobile {
+        display: flex; /* Show mobile social icons */
+    }
+    
+    .footer {
+        margin-bottom: 50px; /* Add space for the mobile social icons */
+    }
+}
+
+/* Ensure the desktop view is correct */
+@media (min-width: 992px) {
+    .nav-icons {
+        display: flex !important; /* Show desktop icons */
+    }
+    
+    .nav-icons-mobile {
+        display: none !important; /* Hide mobile icons */
+    }
+    
+    .footer {
+        margin-bottom: 0; /* Remove extra footer space */
+    }
+}
 /* Arcade Background Animation */
 #arcade-bg {
     position: fixed;
