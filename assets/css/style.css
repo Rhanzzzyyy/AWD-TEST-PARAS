@@ -278,15 +278,10 @@ body {
     max-height: 650px;
 }
 
-#tabletImageCarousel .carousel-inner .carousel-item {
-    height: 100%; /* Ensure carousel item takes full height */
-}
-
 #tabletImageCarousel .carousel-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* Center the image content */
 }
 
 /* Mobile Carousel */
@@ -481,23 +476,6 @@ body {
     }
 }
 
-/* Tablet landscape mode specific styles */
-@media (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
-    #tabletImageCarousel .carousel-inner {
-        height: 90vh; /* Increase height in landscape mode */
-        max-height: none; /* Remove max-height constraint in landscape */
-    }
-    
-    .tournament-container {
-        height: 80vh; /* Adjust tournament containers for landscape */
-        max-height: none; /* Remove max-height constraint */
-    }
-    
-    .tournament-bg-img {
-        object-position: center; /* Ensure image is centered */
-    }
-}
-
 /* Large Tablets and Small Desktops */
 @media (max-width: 1200px) {
     .tournament-title {
@@ -631,8 +609,5 @@ body {
     .navbar-nav.ms-auto .nav-link i {
         font-size: 14px;
         margin-right: 5px;
-    }
-    .footer {
-        margin-bottom: 70px;
     }
 }
