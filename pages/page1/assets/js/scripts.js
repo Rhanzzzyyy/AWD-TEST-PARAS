@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 200);
 
     // Create floating pixel particles
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
         createPixel();
     }
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const posY = Math.random() * window.innerHeight;
 
         // Random size (small)
-        const size = Math.random() * 4 + 1;
+        const size = Math.random() * 15 + 1;
 
         // Random color (blue/cyan variations)
         const colors = ['#00f2ff', '#0cf', '#0af', '#08f', '#06f'];
