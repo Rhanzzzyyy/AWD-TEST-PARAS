@@ -179,8 +179,22 @@ body {
     }
 }
 
-/* Hero and Carousel Container */
+/* Desktop Hero and Carousel Container */
 .hero-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Tablet Hero and Carousel Container */
+.tablet-hero-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Mobile Hero and Carousel Container */
+.mobile-hero-carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -234,19 +248,55 @@ body {
     margin-top: 5px;
 }
 
-/* Carousel */
-.carousel {
+/* Desktop Carousel */
+#desktopImageCarousel {
     position: relative;
     z-index: 1;
     width: 100%;
 }
 
-.carousel-inner {
+#desktopImageCarousel .carousel-inner {
     height: 100vh;
     max-height: 800px;
 }
 
-.carousel-inner img {
+#desktopImageCarousel .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tablet Carousel */
+#tabletImageCarousel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+#tabletImageCarousel .carousel-inner {
+    height: 70vh;
+    max-height: 650px;
+}
+
+#tabletImageCarousel .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile Carousel */
+#mobileImageCarousel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+#mobileImageCarousel .carousel-inner {
+    height: 50vh;
+    max-height: 400px;
+}
+
+#mobileImageCarousel .carousel-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -385,15 +435,44 @@ body {
     margin: 0;
 }
 
-.paras {
-    color: #00f2ff;
-    font-weight: 500;
-}
 
 /* Media Queries for Responsiveness */
 @media (min-width: 992px) {
     .footer {
         margin-bottom: 0; /* Reset margin for desktop */
+    }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-title {
+        font-size: 65px;
+    }
+    
+    .hero-subtitle {
+        font-size: 22px;
+    }
+    
+    #tabletImageCarousel .carousel-inner {
+        height: 70vh;
+        max-height: 650px;
+    }
+    
+    .tournament-container {
+        height: 60vh;
+        max-height: 550px;
+    }
+    
+    .tournament-title {
+        font-size: 65px;
+    }
+    
+    .tournament-text {
+        margin-top: -50px;
+    }
+    
+    .arcade-container {
+        max-height: 170px;
     }
 }
 
@@ -439,11 +518,6 @@ body {
         font-size: 20px;
     }
 
-    .carousel-inner {
-        height: 80vh;
-        max-height: 600px;
-    }
-
     .arcade-container {
         max-height: 150px;
     }
@@ -456,7 +530,13 @@ body {
 }
 
 /* Large Phones */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+    /* Mobile Hero Specific Styles */
+    #mobileImageCarousel .carousel-inner {
+        height: 60vh;
+        max-height: 500px;
+    }
+
     .tournament-title {
         font-size: 40px;
     }
@@ -473,15 +553,16 @@ body {
     .hero-subtitle {
         font-size: 16px;
     }
-
-    .carousel-inner {
-        height: 60vh;
-        max-height: 500px;
-    }
 }
 
 /* Small Phones */
 @media (max-width: 576px) {
+    /* Mobile Hero Specific Styles */
+    #mobileImageCarousel .carousel-inner {
+        height: 50vh;
+        max-height: 400px;
+    }
+
     .tournament-title {
         font-size: 28px;
     }
@@ -500,10 +581,6 @@ body {
 
     .hero-subtitle {
         font-size: 14px;
-    }
-
-    .carousel-inner {
-        height: 50vh;
     }
 
     .arcade-container {
