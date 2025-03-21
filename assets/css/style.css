@@ -533,4 +533,7 @@ body {
         font-size: 14px;
         margin-right: 5px;
     }
+    .footer {
+        margin-bottom: 70px;
+    }
 }
