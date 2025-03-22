@@ -166,10 +166,15 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
+/* Header Styles - Updated for better mobile centering */
 .login-header {
     text-align: center;
-    padding-top: 55px;
+    padding: 55px 15px 0; /* Added horizontal padding */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .glow-text {
@@ -180,10 +185,13 @@ body {
         0 0 5px #00f2ff,
         0 0 5px #00f2ff,
         0 0 13px #00f2ff;
+    text-align: center; /* Ensure text is centered */
 }
 
 .login-header p {
     font-size: 18px;
+    text-align: center; /* Ensure text is centered */
+    width: 100%;
 }
 
 .highlight {
@@ -201,6 +209,9 @@ body {
     border-right: 0;
     border-top: 2px solid #00f2ff;
     border-bottom: 2px solid #00f2ff;
+    display: flex; /* Added for better centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 /* Content Layout - Updated for full height and width */
@@ -417,7 +428,7 @@ body {
     }
 }
 
-/* Media query for mobile view - Updated with settings from first CSS */
+/* Media query for mobile view - Updated with better centering */
 @media (max-width: 991px) {
     /* This will ensure the desktop icons are completely hidden on mobile */
     .nav-icons {
@@ -462,6 +473,22 @@ body {
     .navbar-nav.ms-auto .nav-link {
         padding: 8px 12px;
         margin: 5px 0;
+    }
+    
+    /* Improved centering for login header on mobile */
+    .login-header {
+        padding: 30px 20px 0; /* Reduced top padding, increased horizontal padding */
+    }
+    
+    .top-image-container {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    /* Center the LOGIN PAGE text better */
+    .glow-text {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -513,7 +540,7 @@ body {
     }
 }
 
-/* Large Phones - Improved from first CSS */
+/* Large Phones - Improved from first CSS with better centering */
 @media (max-width: 768px) {
     .glow-text {
         font-size: 28px;
@@ -521,6 +548,7 @@ body {
     
     .login-header p {
         font-size: 16px;
+        padding: 0 10px; /* Add horizontal padding */
     }
     
     .form-title {
@@ -530,6 +558,18 @@ body {
     
     .top-image-container {
         height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .login-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px 0; /* Adjusted padding */
     }
     
     .submit-button {
@@ -548,14 +588,29 @@ body {
     }
 }
 
-/* Small Phones - Improved from first CSS */
+/* Small Phones - Improved from first CSS with better centering */
 @media (max-width: 576px) {
     .glow-text {
         font-size: 24px;
+        width: 100%;
+        text-align: center;
+        padding: 0 5px; /* Add small horizontal padding */
+    }
+    
+    .login-header {
+        width: 100%;
+        padding: 15px 10px 0; /* Reduced top padding, kept horizontal padding */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     .login-header p {
         font-size: 14px;
+        width: 100%;
+        text-align: center;
+        padding: 0 5px; /* Add small horizontal padding */
     }
     
     .form-title {
@@ -566,6 +621,9 @@ body {
     
     .top-image-container {
         height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .submit-button {
@@ -623,4 +681,10 @@ body {
         width: 4px;
         height: 8px;
     }
+    
+    /* Ensure pixel-text is properly centered */
+    .pixel-text {
+        display: inline-block;
+    }
 }
+.abouttxt {color : #00f2ff;}
