@@ -123,19 +123,6 @@ body {
     color: cyan;
 }
 
-/* Mobile logo fix */
-@media (max-width: 991px) {
-    .logo-container-mobile {
-        margin-right: auto;
-        margin-left: 0;
-        text-align: left;
-    }
-
-    .navbar-toggler {
-        margin-left: auto;
-    }
-}
-
 /* Background Effects */
 .arcade-bg {
     position: fixed;
@@ -172,7 +159,7 @@ body {
 /* Header Styles */
 .registration-header {
     text-align: center;
-    padding: 1.5rem 0;
+    padding-top: 55px;
 }
 
 .glow-text {
@@ -400,18 +387,83 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Animation for floating pixels */
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(5px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
 /* Media Queries for Responsiveness */
-@media (max-width: 991px) {
+/* Ensure the desktop view is correct */
+@media (min-width: 992px) {
     .nav-icons {
-        display: none;
+        display: flex !important; /* Show desktop icons */
     }
-
+    
     .nav-icons-mobile {
-        display: flex;
+        display: none !important; /* Hide mobile icons */
     }
-
+    
     .footer {
-        margin-bottom: 70px;
+        margin-bottom: 0; /* Remove extra footer space */
+    }
+}
+
+/* Large Tablets and Small Desktops */
+@media (max-width: 1200px) {
+    .form-title {
+        font-size: 38px;
+    }
+    
+    .glow-text {
+        font-size: 36px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+    /* This will ensure the desktop icons are completely hidden on mobile */
+    .nav-icons {
+        display: none !important; /* Added !important to override any other styles */
+        visibility: hidden; /* Double protection to ensure it's hidden */
+        opacity: 0;
+    }
+    
+    .nav-icons-mobile {
+        display: flex; /* Show mobile social icons */
+    }
+    
+    .footer {
+        margin-bottom: 70px; /* Add space for the mobile social icons */
+    }
+    
+    /* Mobile logo fix */
+    .logo-container-mobile {
+        margin-right: auto;
+        margin-left: 0;
+        text-align: left;
+    }
+    
+    .navbar-toggler {
+        margin-left: auto;
+    }
+    
+    /* Enhance navbar drop shadow for mobile */
+    .navbar {
+        box-shadow: 0 3px 12px rgba(0, 242, 255, 0.5);
     }
     
     .content-wrapper {
@@ -432,41 +484,146 @@ body {
         min-height: 500px;
         width: 100%;
     }
+    
+    .form-title {
+        font-size: 32px;
+        padding-top: 30px;
+    }
+    
+    .glow-text {
+        font-size: 32px;
+    }
+    
+    /* Adjust login/signup links for mobile */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 8px 12px;
+        margin: 5px 0;
+    }
 }
 
+/* Large Phones */
 @media (max-width: 768px) {
     .glow-text {
-        font-size: 30px;
+        font-size: 28px;
+    }
+    
+    .registration-header p {
+        font-size: 16px;
     }
     
     .form-title {
-        font-size: 1.5rem;
-    }
-    
-    .submit-button {
-        font-size: 0.8rem;
+        font-size: 28px;
+        padding-top: 20px;
     }
     
     .top-image-container {
         height: 150px;
     }
-}
-
-@media (max-width: 576px) {
-    .glow-text {
-        font-size: 24px;
-    }
     
-    .registration-header p {
+    .registration-form input {
+        padding: 0.7rem;
         font-size: 14px;
     }
     
+    .submit-button {
+        padding: 0.8rem;
+        font-size: 11px;
+    }
+    
+    .login-link {
+        font-size: 14px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 576px) {
+    .glow-text {
+        font-size: 22px;
+    }
+    
+    .registration-header p {
+        font-size: 12px;
+    }
+    
     .form-title {
-        font-size: 1.2rem;
+        font-size: 22px;
+        padding-top: 15px;
+        margin-bottom: 1rem;
     }
     
     .top-image-container {
         height: 120px;
+    }
+    
+    .registration-form {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .registration-form input {
+        padding: 0.6rem;
+        margin-bottom: 0.8rem;
+        font-size: 12px;
+    }
+    
+    .submit-button {
+        padding: 0.7rem;
+        font-size: 10px;
+        margin-top: 0.8rem;
+    }
+    
+    .login-link {
+        font-size: 12px;
+    }
+    
+    .type-option {
+        font-size: 12px;
+    }
+    
+    .type-option i {
+        font-size: 14px;
+    }
+    
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+    }
+    
+    .toggle-button {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .toggle-active .toggle-button {
+        transform: translateX(20px);
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+    }
+
+    /* Further adjustments for very small screens */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .navbar-nav.ms-auto .nav-link i {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    
+    .inner-form-container {
+        padding: 1rem;
     }
 }
 
