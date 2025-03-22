@@ -133,6 +133,145 @@ body {
     color: cyan;
 }
 
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/300');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-subtitle span {
+    color: cyan;
+}
+
+/* Login Form Section */
+.login-section {
+    display: flex;
+    min-height: 500px;
+}
+
+.game-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    background-color: #050533;
+    padding: 5px;
+}
+
+.game-image {
+    background-size: cover;
+    background-position: center;
+}
+
+.login-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #050569;
+    padding: 20px;
+}
+
+.login-form {
+    width: 80%;
+    padding: 30px;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: cyan;
+}
+
+.form-control {
+    background-color: rgba(173, 216, 230, 0.2);
+    border: none;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-check {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-check-input {
+    margin-right: 8px;
+}
+
+.btn-login {
+    background-color: #00d4ff;
+    border: none;
+    color: black;
+    padding: 12px;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: cyan;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.4);
+}
+
+.login-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: white;
+}
+
+.login-footer a {
+    color: cyan;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #000;
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
 /* Mobile logo fix */
 @media (max-width: 991px) {
     .logo-container-mobile {
@@ -160,7 +299,15 @@ body {
     }
 
     .footer {
-        margin-bottom: 200px; /* Add space for the mobile social icons */
+        margin-bottom: 60px; /* Add space for the mobile social icons */
+    }
+    
+    .login-section {
+        flex-direction: column;
+    }
+    
+    .game-images {
+        height: 200px;
     }
 }
 
@@ -176,5 +323,49 @@ body {
 
     .footer {
         margin-bottom: 0; /* Remove extra footer space */
+    }
+}
+
+/* Small Phones */
+@media (max-width: 576px) {
+    /* Mobile Hero Specific Styles */
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+    }
+
+    /* Further adjustments for very small screens */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .navbar-nav.ms-auto .nav-link i {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+}
+/* Tablets */
+@media (max-width: 992px) {
+    /* Adjust login/signup links for mobile */
+    .navbar-nav.ms-auto .nav-link {
+        padding: 8px 12px;
+        margin: 5px 0;
     }
 }

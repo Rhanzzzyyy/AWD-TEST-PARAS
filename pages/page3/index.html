@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paras - Gaming Hub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../page3/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 </head>
@@ -25,24 +25,25 @@
 
                 <!-- Left Links -->
                 <div class="navbar-nav me-auto">
-                    <a class="nav-link" href="./index.html">HOME</a>
-                    <a class="nav-link" href="./pages/page1/index.html">ABOUT US</a>
+                    <a class="nav-link" href="../../index.html">HOME</a>
+                    <a class="nav-link" href="../page1/index.html">ABOUT US</a>
                 </div>
 
                 <!-- Center Logo (visible only on desktop) -->
                 <a class="navbar-brand mx-auto logo-container d-none d-lg-block" href="./index.html">
                     <span class="logo">PARAS</span>
-                    <span class="subtitle">THE ULTIMATE GAMING HUB </span>
+                    <span class="subtitle">THE ULTIMATE GAMING HUB</span>
                 </a>
 
                 <!-- Right Links -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="././pages/page3/index.html"><i class="fa-solid fa-user"></i>LOGIN</a>
-                    <a class="nav-link" href=""><i class="fa-solid fa-user-group"></i>SIGN UP</a>
+                    <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>LOG IN</a>
+                    <a class="nav-link" href="#"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
                 </div>
             </div>
         </div>
     </nav>
+
     <div class="nav-icons">
         <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
         <a class="nav-link" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
@@ -54,3 +55,51 @@
         <a class="nav-link" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
         <a class="nav-link" href="https://x.com/?lang=en"><i class="fa-brands fa-x"></i></a>
     </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">LOGIN PAGE</h1>
+            <h2 class="hero-subtitle">Compete. Conquer. Join <span>PARAS.</span></h2>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-section">
+        <div class="game-images">
+            <!-- Game images grid -->
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+            <div class="game-image" style="background-image: url('/api/placeholder/200/200');"></div>
+        </div>
+        
+        <div class="login-form-container">
+            <div class="login-form">
+                <h2 class="login-title">WELCOME BACK</h2>
+                <form>
+                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-login">GET STARTED NOW</button>
+                </form>
+                <div class="login-footer">
+                    Are you a member? <a href="#">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        ©2025 PARAS - eSports tournament scheduling
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
