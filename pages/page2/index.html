@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paras - Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <a class="navbar-brand d-lg-none logo-container-mobile" href="../../index.html">
+                <span class="logo">PARAS</span>
+                <span class="subtitle">THE ULTIMATE GAMING HUB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Left Links -->
+                <div class="navbar-nav me-auto">
+                    <a class="nav-link" href="../../index.html">HOME</a>
+                    <a class="nav-link" href="../page1/index.html">ABOUT US</a>
+                </div>
+
+                <!-- Center Logo (visible only on desktop) -->
+                <a class="navbar-brand mx-auto logo-container d-none d-lg-block" href="../../index.html">
+                    <span class="logo">PARAS</span>
+                    <span class="subtitle">THE ULTIMATE GAMING HUB</span>
+                </a>
+
+                <!-- Right Links -->
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href=""><i class="fa-solid fa-user"></i>LOGIN</a>
+                    <a class="nav-link" href="../page2/index.html"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="nav-icons">
+        <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a class="nav-link" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a class="nav-link" href="https://x.com/?lang=en"><i class="fa-brands fa-x"></i></a>
+    </div>
+    
+    <div class="nav-icons-mobile">
+        <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a class="nav-link" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a class="nav-link" href="https://x.com/?lang=en"><i class="fa-brands fa-x"></i></a>
+    </div>
+
+    <!-- Arcade Background Animation -->
+    <div id="arcade-bg"></div>
+
+    <!-- Registration Content -->
+    <div class="container">
+        <div class="registration-container">
+            <div class="registration-header">
+                <h1 class="glow-text">REGISTRATION PAGE</h1>
+                <h2>Compete. Conquer. Join <span class="highlight">PARAS</span>.</h2>
+            </div>
+            
+            <div class="registration-form-container">
+                <h2 class="form-title">REGISTER NOW</h2>
+                <form class="registration-form">
+                    <input type="text" placeholder="Username" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm password" required>
+                    
+                    <div class="user-type">
+                        <div class="type-option">
+                            <input type="radio" id="player" name="user-type" checked>
+                            <label for="player">Player</label>
+                        </div>
+                        <div class="type-toggle">
+                            <div class="toggle-button"></div>
+                        </div>
+                        <div class="type-option">
+                            <input type="radio" id="organizer" name="user-type">
+                            <label for="organizer">Organizer</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">GET STARTED NOW</button>
+                    
+                    <div class="login-link">
+                        Are you a member? <a href="#">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        ©2025 PARAS - eSports tournament scheduling
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+</body>
+</html>
