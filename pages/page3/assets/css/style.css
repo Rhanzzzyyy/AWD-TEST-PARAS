@@ -53,9 +53,9 @@ body {
 
 /* Adjustments for login and signup links in the navbar */
 .navbar-nav .nav-link i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 16px; /* Consistent icon size */
-    vertical-align: middle; /* Align icon with text */
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
 }
 
 /* Specifically target the right side navbar links */
@@ -161,17 +161,18 @@ body {
     z-index: -1;
 }
 
-/* Main Container Settings */
+/* Main Container Settings - Updated to be full width */
 .main-container {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 25px 10px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header Styles */
 .login-header {
     text-align: center;
-    padding-top: 55px
+    padding-top: 55px;
 }
 
 .glow-text {
@@ -192,54 +193,60 @@ body {
     color: #00f2ff;
 }
 
-/* Top Image Container */
+/* Top Image Container - Updated for full width */
 .top-image-container {
     height: 200px;
-    background-image: url('../../../../assets/img/filler.png');
+    background-image: url('../../../../assets/img/login\ headline\ \ 1.png');
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    border: 2px solid #00f2ff;
+    border-radius: 0; /* Removed border radius for full width effect */
+    border-left: 0;
+    border-right: 0;
+    border-top: 2px solid #00f2ff;
+    border-bottom: 2px solid #00f2ff;
 }
 
-/* Content Layout */
+/* Content Layout - Updated for full height and width */
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    margin: 20px 0 50px;
-    height: calc(100vh - 350px);
+    gap: 0; /* Removed gap between containers */
+    margin: 0; /* Removed margins */
+    height: calc(100vh - 300px); /* Adjusted height calculation */
     min-height: 500px;
 }
 
 /* Left Column - Image Container */
 .left-image-container {
-    flex: 1.7; /* Increase this value to make it take up more space */
-    background-image: url('../../../../assets/img/mobile-hero1.jpg');
+    flex: 1.7;
+    width: 70%;
+    background-image: url('../../../../assets/img/login-pic.png');
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    border: 2px solid #00f2ff;
+    border-radius: 0; /* Removed border radius for flush edges */
+    border: none; /* Removed borders */
+    border-right: 2px solid #00f2ff; /* Add only right border */
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    min-height: 120%;
+    min-height: 100%; /* Changed to 100% to match container height */
     align-items: center;
 }
 
 /* Right Column - Login Form */
 .login-form-container {
-    flex: 0.6; /* Decrease this value to make it thinner (about 30% width) */
+    flex: 0.6;
+    width: 30%;
     background-color: rgba(0, 6, 51, 0.85);
-    border: 2px solid #00f2ff;
-    border-radius: 8px;
+    border: none; /* Removed borders */
+    border-radius: 0; /* Removed border radius */
     padding: 25px;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    height: 120%;
+    height: 100%; /* Changed to 100% to match container height */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* Inner Container for Form */
+/* Inner Container for Form - Kept as is */
 .inner-form-container {
     background-color: rgba(0, 20, 150, 0.5);
     border: 1px solid rgba(0, 242, 255, 0.7);
@@ -389,14 +396,15 @@ body {
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
 
-/* Footer */
+/* Footer - Updated to stick to bottom with no margins */
 .footer { 
     text-align: center;
     color: #fdfdfd;
     font-size: 14px;
     padding: 15px 0;
     border-top: 1px solid rgba(0, 242, 255, 0.3);
-    margin-top: 10px;
+    margin-top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Media Queries for Responsiveness */
@@ -420,12 +428,16 @@ body {
     
     .left-image-container {
         min-height: 300px;
-        margin-top: 20px;
+        margin-top: 0;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #00f2ff;
     }
     
     .login-form-container {
         height: auto;
         min-height: 500px;
+        width: 100%;
     }
 }
 
@@ -463,14 +475,4 @@ body {
     .top-image-container {
         height: 120px;
     }
-}
-
-.left-image-container {
-    width: 70%;
-    /* other properties remain the same */
-}
-
-.login-form-container {
-    width: 30%;
-    /* other properties remain the same */
 }
