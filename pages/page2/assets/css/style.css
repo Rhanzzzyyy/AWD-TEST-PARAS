@@ -161,11 +161,12 @@ body {
     z-index: -1;
 }
 
-/* Main Container Settings */
+/* Main Container Settings - Updated to be full width */
 .main-container {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header Styles */
@@ -192,79 +193,90 @@ body {
     color: #00f2ff;
 }
 
-/* Top Image Container - Restored and Enlarged */
+/* Top Image Container - Updated for full width */
 .top-image-container {
     height: 200px;
     background-image: url(../../../../assets/img/registration\ page\ pic.png);
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 2px solid #00f2ff;
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    border-radius: 0; /* Removed border radius for full width effect */
+    border-left: 0;
+    border-right: 0;
+    border-top: 2px solid #00f2ff;
+    border-bottom: 2px solid #00f2ff;
+    margin-bottom: 0; /* Removed margin */
 }
 
-/* Content Layout - Enlarged to fill more of the screen */
+/* Content Layout - Updated to match second file's dimensions */
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    margin: 20px 0 50px;
-    height: calc(100vh - 350px);
+    gap: 0; /* Removed gap between containers */
+    margin: 0; /* Removed margins */
+    height: calc(100vh - 300px); /* Adjusted height calculation from second file */
     min-height: 500px;
 }
 
-/* Left Column - Image Container */
+/* Left Column - Image Container - Updated to match second file */
 .left-image-container {
-    flex: 1.2;
+    flex: 1.7;
+    width: 70%;
     background-image: url(../../../../assets/img/regis\ pic\ leftside.png);
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
-    border: 2px solid #00f2ff;
+    border-radius: 0; /* Removed border radius for flush edges */
+    border: none; /* Removed borders */
+    border-right: 2px solid #00f2ff; /* Add only right border */
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    min-height: 100%;
+    min-height: 100%; /* Changed to 100% to match container height */
 }
 
-/* Right Column - Registration Form */
+/* Right Column - Registration Form - Updated to match second file */
 .registration-form-container {
-    flex: 0.8;
+    flex: 0.6;
+    width: 30%;
     background-color: rgba(0, 6, 51, 0.85);
-    border: 2px solid #00f2ff;
-    border-radius: 8px;
-    padding: 2rem;
+    border: none; /* Removed borders */
+    border-radius: 0; /* Removed border radius */
+    padding: 25px;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    height: 100%;
+    height: 100%; /* Changed to 100% to match container height */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* New Inner Container for Form */
+/* Inner Form Container - Adjusted to match second file */
 .inner-form-container {
     background-color: rgba(0, 20, 150, 0.5);
     border: 1px solid rgba(0, 242, 255, 0.7);
     border-radius: 6px;
-    padding: 1.5rem;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.2);
+    padding: 1.5rem;
 }
 
+/* Form Title - Adjusted to match second file */
 .form-title {
     color: #00f2ff;
     text-align: center;
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 45px;
+    padding-top: 70px;
 }
 
+/* Registration Form - Adjusted to match login form in second file */
 .registration-form {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .registration-form input {
@@ -347,7 +359,7 @@ body {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 12px;
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -362,7 +374,7 @@ body {
 
 .login-link {
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 15px;
     font-family: Arial, sans-serif;
     color: white;
 }
@@ -377,14 +389,15 @@ body {
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
 
-/* Footer */
+/* Footer - Updated to match second file */
 .footer { 
     text-align: center;
     color: #fdfdfd;
     font-size: 14px;
     padding: 15px 0;
     border-top: 1px solid rgba(0, 242, 255, 0.3);
-    margin-top: 10px;
+    margin-top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Media Queries for Responsiveness */
@@ -408,12 +421,16 @@ body {
     
     .left-image-container {
         min-height: 300px;
-        margin-top: 20px;
+        margin-top: 0;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #00f2ff;
     }
     
     .registration-form-container {
         height: auto;
         min-height: 500px;
+        width: 100%;
     }
 }
 
@@ -452,4 +469,7 @@ body {
         height: 120px;
     }
 }
-.signtxt{ color : #00f2ff;} 
+
+.signtxt { 
+    color: #00f2ff; 
+}
