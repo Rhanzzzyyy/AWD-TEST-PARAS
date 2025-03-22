@@ -35,7 +35,7 @@
 
                 <!-- Right Links -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href=""><i class="fa-solid fa-user"></i>LOG IN</a>
+                    <a class="nav-link active" href=""><i class="fa-solid fa-user"></i>LOGIN</a>
                     <a class="nav-link" href="../page2/index.html"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
                 </div>
             </div>
@@ -58,36 +58,47 @@
     <div class="arcade-bg"></div>
 
     <!-- Login Content -->
-    <div class="container">
+    <div class="container main-container">
         <div class="login-header">
             <h1 class="glow-text">LOGIN PAGE</h1>
             <p>Compete. Conquer. Join <span class="highlight">PARAS</span>.</p>
         </div>
         
+        <!-- Top Image Container -->
+        <div class="top-image-container">
+            <!-- Image will be added with CSS -->
+        </div>
+        
         <div class="content-wrapper">
-            <!-- Left Column - Gaming Images -->
+            <!-- Left Column - Image Container -->
             <div class="left-image-container">
                 <!-- Image will be added with CSS -->
             </div>
             
             <!-- Right Column - Login Form -->
             <div class="login-form-container">
-                <h2 class="form-title">WELCOME BACK</h2>
-                <form class="login-form">
-                    <input type="text" placeholder="Username" required>
-                    <input type="password" placeholder="Password" required>
-                    
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember-checkbox">
-                        <label for="remember-checkbox">Remember me</label>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">GET STARTED NOW</button>
-                    
-                    <div class="signup-link">
-                        Are you a member? <a href="../page2/index.html">Login</a>
-                    </div>
-                </form>
+                <!-- Inner container for the login form -->
+                <div class="inner-form-container">
+                    <h2 class="form-title">WELCOME BACK</h2>
+                    <form class="login-form">
+                        <input type="text" placeholder="Username" required>
+                        <input type="password" placeholder="Password" required>
+                        
+                        <div class="remember-me">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">GET STARTED NOW</button>
+                        
+                        <div class="signup-link">
+                            Not a member? <a href="../page2/index.html">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
