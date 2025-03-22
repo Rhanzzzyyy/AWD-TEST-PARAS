@@ -35,8 +35,8 @@
 
                 <!-- Right Links -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href=""><i class="fa-solid fa-user"></i>LOGIN</a>
-                    <a class="nav-link" href="../page2/index.html"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
+                    <a class="nav-link" href="../page3/index.html"><i class="fa-solid fa-user"></i>LOGIN</a>
+                    <a class="nav-link" href=""><i class="fa-solid fa-user-group"></i>SIGN UP</a>
                 </div>
             </div>
         </div>
@@ -54,17 +54,23 @@
         <a class="nav-link" href="https://x.com/?lang=en"><i class="fa-brands fa-x"></i></a>
     </div>
 
-    <!-- Arcade Background Animation -->
-    <div id="arcade-bg"></div>
+    <!-- Background with arcade games -->
+    <div class="arcade-bg"></div>
 
     <!-- Registration Content -->
     <div class="container">
-        <div class="registration-container">
-            <div class="registration-header">
-                <h1 class="glow-text">REGISTRATION PAGE</h1>
-                <h2>Compete. Conquer. Join <span class="highlight">PARAS</span>.</h2>
-            </div>
-            
+        <div class="registration-header">
+            <h1 class="glow-text">REGISTRATION PAGE</h1>
+            <p>Compete. Conquer. Join <span class="highlight">PARAS</span>.</p>
+        </div>
+        
+        <!-- Top Image Container -->
+        <div class="top-image-container">
+            <!-- Image will be added with CSS -->
+        </div>
+        
+        <div class="content-wrapper">
+            <!-- Left Column - Registration Form -->
             <div class="registration-form-container">
                 <h2 class="form-title">REGISTER NOW</h2>
                 <form class="registration-form">
@@ -74,25 +80,30 @@
                     <input type="password" placeholder="Confirm password" required>
                     
                     <div class="user-type">
-                        <div class="type-option">
-                            <input type="radio" id="player" name="user-type" checked>
-                            <label for="player">Player</label>
+                        <div class="type-option player-option">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>Player</span>
                         </div>
-                        <div class="type-toggle">
+                        <div class="toggle-switch" id="user-toggle">
                             <div class="toggle-button"></div>
                         </div>
-                        <div class="type-option">
-                            <input type="radio" id="organizer" name="user-type">
-                            <label for="organizer">Organizer</label>
+                        <div class="type-option organizer-option">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Organizer</span>
                         </div>
                     </div>
                     
                     <button type="submit" class="submit-button">GET STARTED NOW</button>
                     
                     <div class="login-link">
-                        Are you a member? <a href="#">Login</a>
+                        Are you a member? <a href="../page3/index.html">Login</a>
                     </div>
                 </form>
+            </div>
+            
+            <!-- Right Column - Image Container -->
+            <div class="right-image-container">
+                <!-- Image will be added with CSS -->
             </div>
         </div>
     </div>
