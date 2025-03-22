@@ -195,7 +195,7 @@ body {
 /* Top Image Container - Restored and Enlarged */
 .top-image-container {
     height: 200px;
-    background-image: url('/api/placeholder/1200/200');
+    background-image: url(../../../../assets/img/registration\ page\ pic.png);
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -217,7 +217,7 @@ body {
 /* Left Column - Image Container */
 .left-image-container {
     flex: 1.2;
-    background-image: url('/api/placeholder/600/900');
+    background-image: url(../../../../assets/img/regis\ pic\ leftside.png);
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -452,3 +452,4 @@ body {
         height: 120px;
     }
 }
+.signtxt{ color : #00f2ff;} 
