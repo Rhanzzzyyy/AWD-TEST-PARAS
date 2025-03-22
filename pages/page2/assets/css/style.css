@@ -12,9 +12,10 @@ body {
     background-color: #000;
     color: white;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* Navbar Styles */
+/* Navbar Styles - Unchanged */
 .navbar {
     background-color: black;
     padding: 10px 0;
@@ -160,10 +161,17 @@ body {
     z-index: -1;
 }
 
+/* Main Container Settings */
+.main-container {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
 /* Header Styles */
 .registration-header {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
 }
 
 .glow-text {
@@ -184,15 +192,7 @@ body {
     color: #00f2ff;
 }
 
-/* Content Layout */
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 50px;
-}
-
-/* Top Image Container */
+/* Top Image Container - Restored and Enlarged */
 .top-image-container {
     height: 200px;
     background-image: url('/api/placeholder/1200/200');
@@ -204,14 +204,53 @@ body {
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
 }
 
-/* Left Column - Registration Form */
+/* Content Layout - Enlarged to fill more of the screen */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 20px 0 50px;
+    height: calc(100vh - 350px);
+    min-height: 500px;
+}
+
+/* Left Column - Image Container */
+.left-image-container {
+    flex: 1.2;
+    background-image: url('/api/placeholder/600/900');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    border: 2px solid #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    min-height: 100%;
+}
+
+/* Right Column - Registration Form */
 .registration-form-container {
-    flex: 1;
-    background-color: rgba(1, 14, 112, 0.85);
+    flex: 0.8;
+    background-color: rgba(0, 6, 51, 0.85);
     border: 2px solid #00f2ff;
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* New Inner Container for Form */
+.inner-form-container {
+    background-color: rgba(0, 20, 150, 0.5);
+    border: 1px solid rgba(0, 242, 255, 0.7);
+    border-radius: 6px;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.2);
 }
 
 .form-title {
@@ -219,6 +258,13 @@ body {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
+}
+
+.registration-form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .registration-form input {
@@ -331,26 +377,14 @@ body {
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
 
-/* Right Column - Image Container */
-.right-image-container {
-    flex: 1;
-    background-image: url('/api/placeholder/600/400');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    border: 2px solid #00f2ff;
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    min-height: 400px;
-}
-
 /* Footer */
 .footer { 
     text-align: center;
     color: #fdfdfd;
     font-size: 14px;
-    padding: 20px 0;
+    padding: 15px 0;
     border-top: 1px solid rgba(0, 242, 255, 0.3);
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 /* Media Queries for Responsiveness */
@@ -368,12 +402,18 @@ body {
     }
     
     .content-wrapper {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        height: auto;
     }
     
-    .right-image-container {
+    .left-image-container {
         min-height: 300px;
         margin-top: 20px;
+    }
+    
+    .registration-form-container {
+        height: auto;
+        min-height: 500px;
     }
 }
 
@@ -382,16 +422,16 @@ body {
         font-size: 30px;
     }
     
-    .top-image-container {
-        height: 150px;
-    }
-    
     .form-title {
         font-size: 1.5rem;
     }
     
     .submit-button {
         font-size: 0.8rem;
+    }
+    
+    .top-image-container {
+        height: 150px;
     }
 }
 
