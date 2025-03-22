@@ -160,7 +160,7 @@ body {
     }
 
     .footer {
-        margin-bottom: 50px; /* Add space for the mobile social icons */
+        margin-bottom: 200px; /* Add space for the mobile social icons */
     }
 }
 
@@ -439,7 +439,7 @@ body {
 /* Media Queries for Responsiveness */
 @media (min-width: 992px) {
     .footer {
-        margin-bottom: 0; /* Reset margin for desktop */
+        margin-bottom: 50px; /* Reset margin for desktop */
     }
 }
 
