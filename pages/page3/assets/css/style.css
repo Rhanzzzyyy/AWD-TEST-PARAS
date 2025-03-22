@@ -254,7 +254,7 @@ body {
     justify-content: center;
 }
 
-/* Inner Container for Form - Kept as is */
+/* Inner Container for Form - Updated for better proportions */
 .inner-form-container {
     background-color: rgba(0, 20, 150, 0.5);
     border: 1px solid rgba(0, 242, 255, 0.7);
@@ -265,6 +265,7 @@ body {
     flex-direction: column;
     justify-content: center;
     box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.2);
+    padding: 20px 0;
 }
 
 .form-title {
@@ -272,16 +273,27 @@ body {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 45px;
-    padding-top: 70px;
+    padding-top: 20px;
 }
 
 .login-form {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 25px;
+    height: 100%;
+}
+
+.form-inputs {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 25px;
-    padding-right: 25px;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .login-form input {
@@ -428,7 +440,7 @@ body {
     }
 }
 
-/* Media query for mobile view - Updated with better centering */
+/* Media query for mobile view - Updated with better proportions */
 @media (max-width: 991px) {
     /* This will ensure the desktop icons are completely hidden on mobile */
     .nav-icons {
@@ -453,6 +465,7 @@ body {
     .content-wrapper {
         flex-direction: column-reverse;
         height: auto;
+        min-height: 500px;
     }
     
     .left-image-container {
@@ -465,8 +478,44 @@ body {
     
     .login-form-container {
         height: auto;
-        min-height: 500px;
+        min-height: 400px;
         width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .inner-form-container {
+        padding: 15px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        min-height: 350px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .form-title {
+        font-size: 32px;
+        padding-top: 15px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Better form layout for mobile */
+    .login-form {
+        height: auto;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .form-inputs {
+        margin-bottom: 20px;
     }
     
     /* Added from first CSS for login/signup links */
@@ -540,7 +589,7 @@ body {
     }
 }
 
-/* Large Phones - Improved from first CSS with better centering */
+/* Large Phones - Improved for better rectangular/proportional layout */
 @media (max-width: 768px) {
     .glow-text {
         font-size: 28px;
@@ -553,7 +602,8 @@ body {
     
     .form-title {
         font-size: 28px;
-        padding-top: 40px;
+        padding-top: 20px;
+        margin-bottom: 15px;
     }
     
     .top-image-container {
@@ -574,21 +624,35 @@ body {
     
     .submit-button {
         font-size: 11px;
+        padding: 12px;
     }
     
     /* Adjustments for the form container */
     .login-form-container {
-        min-height: 400px;
+        min-height: 350px;
         padding: 15px;
     }
     
+    .inner-form-container {
+        padding: 10px 0;
+        max-height: 500px;
+        margin: 0 auto;
+        width: 90%;
+        height: auto;
+        min-height: 320px;
+    }
+    
     .login-form {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding: 0 15px;
+    }
+    
+    .form-inputs input {
+        padding: 10px;
+        margin-bottom: 10px;
     }
 }
 
-/* Small Phones - Improved from first CSS with better centering */
+/* Small Phones - Improved for better rectangular/proportional layout */
 @media (max-width: 576px) {
     .glow-text {
         font-size: 24px;
@@ -615,8 +679,8 @@ body {
     
     .form-title {
         font-size: 24px;
-        padding-top: 30px;
-        margin-bottom: 1rem;
+        padding-top: 15px;
+        margin-bottom: 20px;
     }
     
     .top-image-container {
@@ -626,22 +690,46 @@ body {
         align-items: center;
     }
     
+    /* Remove fixed aspect ratio and adjust for better vertical centering */
+    .inner-form-container {
+        width: 85%;
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 300px;
+        padding: 20px 15px;
+    }
+    
+    .login-form-container {
+        min-height: 380px;
+        padding: 10px;
+    }
+    
     .submit-button {
         font-size: 10px;
-        padding: 0.8rem;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     
     .login-form input {
-        padding: 0.6rem;
+        padding: 8px;
         font-size: 14px;
+        margin-bottom: 8px;
     }
     
     .remember-me {
         font-size: 12px;
+        margin: 8px 0;
     }
     
     .signup-link {
         font-size: 12px;
+    }
+    
+    /* Form spacing improvements */
+    .form-inputs {
+        gap: 12px;
+        margin-bottom: 25px;
     }
     
     /* Additional navbar styling for very small screens */
@@ -682,9 +770,58 @@ body {
         height: 8px;
     }
     
+    /* Form layout improvements */
+    .form-inputs {
+        margin-bottom: 10px;
+    }
+    
+    .form-actions {
+        margin-bottom: 10px;
+    }
+    
     /* Ensure pixel-text is properly centered */
     .pixel-text {
         display: inline-block;
     }
 }
+
+/* Very small phones */
+@media (max-width: 375px) {
+    .inner-form-container {
+        width: 95%;
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 320px;
+        padding: 20px 15px;
+    }
+    
+    .form-title {
+        font-size: 20px;
+        padding-top: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .login-form input {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    .submit-button {
+        padding: 8px;
+        font-size: 9px;
+    }
+    
+    /* Additional vertical centering for very small screens */
+    .login-form-container {
+        min-height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .login-form {
+        gap: 10px;
+    }
+}
+
 .abouttxt {color : #00f2ff;}
