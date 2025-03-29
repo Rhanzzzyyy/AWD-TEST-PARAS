@@ -630,3 +630,137 @@ body {
 .signtxt { 
     color: #00f2ff; 
 }
+
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: -100px; /* Start off-screen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    width: 350px;
+    background: rgba(0, 15, 70, 0.9);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: top 0.3s ease-in-out;
+    border: 1px solid #00f2ff;
+}
+
+.notification.show {
+    top: 80px; /* Slide down when shown */
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+}
+
+.notification-content i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+    color: #00f2ff;
+    transform: scale(1.1);
+}
+
+/* Success and Error variations */
+.notification.success {
+    border-color: #00f2ff;
+}
+
+.notification.success i {
+    color: #00f2ff;
+}
+
+.notification.error {
+    border-color: #ff5b5b;
+}
+
+.notification.error i {
+    color: #ff5b5b;
+}
+
+/* Logged in user styles */
+.nav-link.logged-in {
+    position: relative;
+    color: #00f2ff !important;
+}
+
+.username-display {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Logout menu */
+.logout-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #00f2ff;
+    border-radius: 0 0 5px 5px;
+    width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.nav-link.logged-in:hover .logout-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.logout-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.logout-menu a:hover {
+    background: rgba(0, 242, 255, 0.2);
+    color: #00f2ff;
+}
+
+.logout-menu i {
+    margin-right: 8px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .notification {
+        width: 90%;
+        font-size: 14px;
+    }
+    
+    .notification.show {
+        top: 70px;
+    }
+    
+    .username-display {
+        max-width: 80px;
+    }
+}
