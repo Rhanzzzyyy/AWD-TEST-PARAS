@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Redirect after delay
                 setTimeout(() => {
-                    window.location.href = isOrganizer ? '/organizer-dashboard.html' : '/player-dashboard.html';
+                    window.location.href = isOrganizer ? '../../../../index.html' : '/player-dashboard.html';
                 }, 2000);
 
             } catch (error) {
