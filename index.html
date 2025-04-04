@@ -205,8 +205,8 @@
         </div>
     </section>
 
-    <!-- Tetris Tournaments Section -->
-    <section class="tournaments-section">
+     <!-- Tetris Tournaments Section -->
+     <section class="tournaments-section">
         <div class="container-fluid p-0">
             <div class="tournament-container tetris-container">
                 <img src="./assets/img/landing tetris bg.png" class="tournament-bg-img" alt="Tetris Tournament">
@@ -240,111 +240,70 @@
         </div>
     </section>
 
-    <!-- Arcade Section -->
-    <section class="arcade-section">
-        <div class="container-fluid p-0">
-            <div class="arcade-container">
-                <img src="./assets/img/filler.png" class="img-fluid w-100" alt="Arcade Gaming Area">
-            </div>
-        </div>
-    </section>
-
-    <!-- Tournament Bracket Creator (Visible only to logged-in organizers) -->
-    <section id="bracketCreatorContainer" class="bracket-creator-container" style="display: none;">
+    <!-- Tournaments Section -->
+    <section id="tournamentsSection" class="tournaments-section" style="display: none;">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="bracket-creator-header">
-                        <h2 class="bracket-title">TOURNAMENT BRACKET CREATOR</h2>
-                        <p class="bracket-subtitle">Create and manage your tournament brackets</p>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">ACTIVE TOURNAMENTS</h2>
+                    <p class="section-subtitle">Join now and compete with other players</p>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <!-- Tetris Tournament -->
+                <div class="col-md-6 mb-4">
+                    <div class="tournament-card">
+                        <h3 class="tournament-name">TETRIS CHAMPIONSHIP</h3>
+                        <div class="bracket-container" id="tetrisBracket"></div>
                     </div>
-                    
-                    <div class="bracket-control-panel">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="tournamentName" class="form-label">Tournament Name</label>
-                                <input type="text" class="form-control cyber-input" id="tournamentName" placeholder="Enter tournament name">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="gameSelect" class="form-label">Game</label>
-                                <select class="form-select cyber-input" id="gameSelect">
-                                    <option selected>Select a game</option>
-                                    <option value="tetris">Tetris</option>
-                                    <option value="tekken">Tekken</option>
-                                    <option value="street-fighter">Street Fighter</option>
-                                    <option value="valorant">Valorant</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="startDate" class="form-label">Start Date</label>
-                                <input type="date" class="form-control cyber-input" id="startDate">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="endDate" class="form-label">End Date</label>
-                                <input type="date" class="form-control cyber-input" id="endDate">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="maxPlayers" class="form-label">Max Players</label>
-                                <select class="form-select cyber-input" id="maxPlayers">
-                                    <option value="8">8</option>
-                                    <option value="16" selected>16</option>
-                                    <option value="32">32</option>
-                                    <option value="64">64</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="tournamentDesc" class="form-label">Description</label>
-                                <textarea class="form-control cyber-input" id="tournamentDesc" rows="3" placeholder="Enter tournament description"></textarea>
-                            </div>
-                            <div class="col-12 d-flex justify-content-between">
-                                <button type="button" class="btn cyber-btn" id="managePlayersBtn">
-                                    <i class="fas fa-users me-2"></i>Manage Players
-                                </button>
-                                <div>
-                                    <button type="button" class="btn cyber-btn me-2" id="previewBracketBtn">
-                                        <i class="fas fa-eye me-2"></i>Generate
-                                    </button>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bracket-preview mt-4" id="bracketPreview">
-                        <div class="preview-placeholder">
-                            <i class="fas fa-trophy"></i>
-                            <p>Your bracket preview will appear here</p>
-                        </div>
+                </div>
+                
+                <!-- Tekken Tournament -->
+                <div class="col-md-6 mb-4">
+                    <div class="tournament-card">
+                        <h3 class="tournament-name">TEKKEN TOURNAMENT</h3>
+                        <div class="bracket-container" id="tekkenBracket"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Player Management Modal -->
-    <div class="modal fade" id="playerManagementModal" tabindex="-1" aria-labelledby="playerManagementModalLabel" aria-hidden="true">
+    <!-- Player Registration Modal -->
+    <div class="modal fade" id="playerRegistrationModal" tabindex="-1" aria-labelledby="playerRegistrationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content cyber-modal">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="playerManagementModalLabel">Manage Players</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closePlayerModal()"></button>
+                    <h5 class="modal-title" id="playerRegistrationModalLabel">Join Tournament</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control cyber-input" id="playerNameInput" placeholder="Enter player name">
-                            <button class="btn cyber-btn" type="button" onclick="addPlayer()">Add</button>
+                    <form id="playerRegistrationForm">
+                        <input type="hidden" id="tournamentType">
+                        <input type="hidden" id="matchId">
+                        <input type="hidden" id="playerPosition">
+                        <input type="hidden" id="userId">
+                        
+                        <div class="mb-3">
+                            <label for="playerName" class="form-label">Player Name</label>
+                            <input type="text" class="form-control" id="playerName" required>
                         </div>
-                    </div>
-                    <div class="player-list-container">
-                        <h6>Players</h6>
-                        <ul id="playerList" class="list-unstyled player-list">
-                            <!-- Players will be added here dynamically -->
-                        </ul>
-                    </div>
+                        
+                        <div class="mb-3">
+                            <label for="playerRank" class="form-label">Rank</label>
+                            <input type="text" class="form-control" id="playerRank" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="mainGame" class="form-label">Main Game</label>
+                            <input type="text" class="form-control" id="mainGame" required>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn cyber-btn" data-bs-dismiss="modal" onclick="closePlayerModal()">Close</button>
+                    <button type="button" class="btn cyber-btn" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn cyber-btn-primary" id="submitPlayerRegistration">Join Tournament</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     updateAuthUI();
     initLoginForm();
-    initBracketCreator();
+    initTournaments();
     
     document.querySelector('.logout-link')?.addEventListener('click', function(e) {
         e.preventDefault();
@@ -83,14 +83,20 @@ function updateAuthUI() {
     const authLinks = document.getElementById('authLinks');
     const userDropdown = document.getElementById('userDropdown');
     const usernameDisplay = document.getElementById('usernameDisplay');
+    const tournamentsSection = document.getElementById('tournamentsSection');
 
     if (currentUser?.isLoggedIn) {
         authLinks.style.display = 'none';
         userDropdown.style.display = 'block';
         usernameDisplay.textContent = currentUser.name || currentUser.email.split('@')[0];
+        tournamentsSection.style.display = 'block';
+        
+        // Set userId in registration form
+        document.getElementById('userId').value = currentUser.id;
     } else {
         authLinks.style.display = 'flex';
         userDropdown.style.display = 'none';
+        if (tournamentsSection) tournamentsSection.style.display = 'none';
     }
 }
 
@@ -101,360 +107,76 @@ function logoutUser() {
     setTimeout(() => window.location.href = './index.html', 1500);
 }
 
-// Bracket Creator Functions
-let players = [];
+// Tournament Functions
+let tournaments = {
+    tetris: {
+        name: "Tetris Championship",
+        players: [],
+        rounds: [],
+        champion: null
+    },
+    tekken: {
+        name: "Tekken Tournament",
+        players: [],
+        rounds: [],
+        champion: null
+    }
+};
 
-function initBracketCreator() {
+function initTournaments() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const bracketCreator = document.getElementById('bracketCreatorContainer');
     
     if (currentUser?.isLoggedIn) {
-        bracketCreator.style.display = 'block';
+        // Initialize brackets
+        initializeBrackets();
         
-        // Set up event listeners for buttons
-        document.getElementById('previewBracketBtn').addEventListener('click', previewBracket);
-        document.getElementById('createBracketBtn').addEventListener('click', createBracket);
-        document.getElementById('managePlayersBtn').addEventListener('click', showPlayerManagementModal);
-        
-        // Initialize player list (empty)
-        renderPlayerList();
-        
-        // Setup player management modal
-        setupPlayerManagementModal();
-        
-        // Initialize with empty state
-        editBracket();
-    } else {
-        bracketCreator.style.display = 'none';
-    }
-}
-
-function setupPlayerManagementModal() {
-    const modalElement = document.getElementById('playerManagementModal');
-    if (modalElement) {
-        const playerModal = new bootstrap.Modal(modalElement);
-        window.playerModal = playerModal;
-    }
-}
-
-function showPlayerManagementModal() {
-    if (window.playerModal) {
-        window.playerModal.show();
-    } else {
-        const modal = document.getElementById('playerManagementModal');
-        if (modal) {
-            modal.style.display = 'block';
-            modal.classList.add('show');
+        // Load existing data if available
+        const savedTournaments = localStorage.getItem('tournaments');
+        if (savedTournaments) {
+            const parsed = JSON.parse(savedTournaments);
+            tournaments.tetris = parsed.tetris || tournaments.tetris;
+            tournaments.tekken = parsed.tekken || tournaments.tekken;
         }
+        
+        // Render brackets
+        renderBracket('tetris');
+        renderBracket('tekken');
+        
+        // Set up player registration modal
+        setupPlayerRegistrationModal();
+        
+        // Add reset button event listener
+        document.getElementById('resetBracketsBtn')?.addEventListener('click', resetAllBrackets);
     }
 }
 
-function closePlayerModal() {
-    if (window.playerModal) {
-        window.playerModal.hide();
-    } else {
-        const modal = document.getElementById('playerManagementModal');
-        if (modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('show');
-        }
+function initializeBrackets() {
+    // Initialize Tetris bracket with 8 slots (4 matches in first round)
+    if (tournaments.tetris.rounds.length === 0) {
+        tournaments.tetris.rounds = generateInitialRounds(8);
+    }
+    
+    // Initialize Tekken bracket with 8 slots (4 matches in first round)
+    if (tournaments.tekken.rounds.length === 0) {
+        tournaments.tekken.rounds = generateInitialRounds(8);
     }
 }
 
-function addPlayer() {
-    const input = document.getElementById('playerNameInput');
-    const name = input.value.trim();
-    
-    if (!name) {
-        showCyberNotification('ERROR', 'Please enter a player name', 'error');
-        return;
-    }
-    
-    players.push(name);
-    input.value = '';
-    renderPlayerList();
-    updatePreviewPlayerCount();
-    showCyberNotification('SUCCESS', 'Player added', 'success');
-}
-
-function removePlayer(index) {
-    players.splice(index, 1);
-    renderPlayerList();
-    updatePreviewPlayerCount();
-}
-
-function renderPlayerList() {
-    const list = document.getElementById('playerList');
-    if (!list) return;
-    
-    list.innerHTML = '';
-    
-    players.forEach((player, index) => {
-        const li = document.createElement('li');
-        li.className = 'player-list-item';
-        li.innerHTML = `
-            <span>${player}</span>
-            <button class="btn btn-sm btn-outline-danger" onclick="removePlayer(${index})">
-                <i class="fas fa-trash"></i>
-            </button>
-        `;
-        list.appendChild(li);
-    });
-}
-
-function updatePreviewPlayerCount() {
-    const previewBtn = document.getElementById('previewManagePlayersBtn');
-    if (previewBtn) {
-        previewBtn.innerHTML = `<i class="fas fa-users me-2"></i>Manage Players (${players.length})`;
-    }
-    if (document.getElementById('bracketPreview').innerHTML.includes('bracket-preview-content')) {
-        previewBracket();
-    }
-}
-
-// Bracket Visualization
-function previewBracket() {
-    const maxPlayers = parseInt(document.getElementById('maxPlayers').value);
-    const preview = document.getElementById('bracketPreview');
-    const tournamentName = document.getElementById('tournamentName').value || 'TOURNAMENT';
-    
-    if (!tournamentName) {
-        showCyberNotification('ERROR', 'Please enter a tournament name', 'error');
-        return;
-    }
-    
-    preview.innerHTML = `
-        <div class="bracket-preview-content">
-            <h3>${tournamentName}</h3>
-            <button class="btn cyber-btn mb-3" id="previewManagePlayersBtn" onclick="showPlayerManagementModal()">
-                <i class="fas fa-users me-2"></i>Manage Players (${players.length})
-            </button>
-            ${players.length >= 2 ? generateBracketVisualization(players.slice(0, maxPlayers)) : `
-                <div class="empty-bracket-message">
-                    <i class="fas fa-user-plus"></i>
-                    <p>Add at least 2 players to generate bracket</p>
-                </div>
-            `}
-            <div class="bracket-actions mt-3">
-                <button class="btn cyber-btn me-2" onclick="editBracket()">
-                    <i class="fas fa-edit me-2"></i>Edit
-                </button>
-                <button class="btn cyber-btn-primary" onclick="createBracket()">
-                    <i class="fas fa-check me-2"></i>Create
-                </button>
-            </div>
-        </div>
-    `;
-}
-
-function generateBracketVisualization(teams) {
-    if (teams.length < 2) return '';
-    
-    const rounds = Math.ceil(Math.log2(teams.length));
-    let html = '<div class="bracket-grid">';
+function generateInitialRounds(slots) {
+    const rounds = [];
+    const numRounds = Math.ceil(Math.log2(slots));
     
     // First Round
-    html += `
-        <div class="bracket-round">
-            <h5 class="round-title">ROUND 1</h5>
-            <div class="matches-container">
-    `;
-    
-    const spacing = Math.pow(2, rounds - 1) * 20;
-    
-    for (let i = 0; i < teams.length; i += 2) {
-        const player1 = teams[i] || 'TBD';
-        const player2 = teams[i+1] || (i+1 < teams.length ? 'TBD' : 'BYE');
-        const matchId = `match-0-${i/2}`;
-        
-        html += `
-            <div class="bracket-match" data-match-id="${matchId}" style="margin-top:${i > 0 ? spacing + 'px' : '0'}">
-                <div class="match-player top" data-player="${player1}" onclick="selectWinner('${matchId}', 'top')">${player1}</div>
-                <div class="match-player bottom" data-player="${player2}" onclick="selectWinner('${matchId}', 'bottom')">${player2}</div>
-            </div>
-        `;
-    }
-    html += `</div></div>`;
-    
-    // Subsequent rounds
-    let currentRoundMatches = Math.ceil(teams.length / 2);
-    
-    for (let round = 1; round < rounds; round++) {
-        const nextRoundMatches = Math.ceil(currentRoundMatches / 2);
-        const roundSpacing = Math.pow(2, rounds - round - 1) * 40;
-        
-        html += `
-            <div class="bracket-round">
-                <h5 class="round-title">${getRoundName(round, rounds)}</h5>
-                <div class="matches-container">
-        `;
-        
-        for (let i = 0; i < nextRoundMatches; i++) {
-            const matchId = `match-${round}-${i}`;
-            
-            html += `
-                <div class="bracket-match" data-match-id="${matchId}" style="margin-top:${i > 0 ? roundSpacing + 'px' : '0'}">
-                    <div class="match-player top" onclick="selectWinner('${matchId}', 'top')">TBD</div>
-                    <div class="match-player bottom" onclick="selectWinner('${matchId}', 'bottom')">TBD</div>
-                </div>
-            `;
-        }
-        
-        html += `</div></div>`;
-        currentRoundMatches = nextRoundMatches;
-    }
-    
-    // Champion
-    html += `
-        <div class="bracket-round champion-round">
-            <h5 class="round-title">CHAMPION</h5>
-            <div class="champion-slot" id="champion">TBD</div>
-        </div>
-    `;
-    
-    return html + '</div>';
-}
-
-function selectWinner(matchId, position) {
-    const [_, roundIndex, matchIndex] = matchId.split('-');
-    const round = parseInt(roundIndex);
-    const match = parseInt(matchIndex);
-    
-    const matchElement = document.querySelector(`[data-match-id="${matchId}"]`);
-    const playerElement = matchElement.querySelector(`.match-player.${position}`);
-    const playerName = playerElement.getAttribute('data-player') || playerElement.textContent;
-    
-    matchElement.querySelector('.match-player.top').classList.remove('winner');
-    matchElement.querySelector('.match-player.bottom').classList.remove('winner');
-    playerElement.classList.add('winner');
-    
-    const nextRound = round + 1;
-    const nextMatch = Math.floor(match / 2);
-    const nextPosition = match % 2 === 0 ? 'top' : 'bottom';
-    const nextMatchId = `match-${nextRound}-${nextMatch}`;
-    
-    const nextMatchElement = document.querySelector(`[data-match-id="${nextMatchId}"]`);
-    if (nextMatchElement) {
-        const nextPlayerElement = nextMatchElement.querySelector(`.match-player.${nextPosition}`);
-        nextPlayerElement.textContent = playerName;
-        nextPlayerElement.setAttribute('data-player', playerName);
-    } else if (round === Math.ceil(Math.log2(players.length)) - 1) {
-        document.getElementById('champion').textContent = playerName;
-    }
-    
-    updateBracketData(matchId, position, playerName);
-}
-
-function updateBracketData(matchId, winnerPosition, winnerName) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const bracketId = urlParams.get('id');
-    
-    if (!bracketId) return;
-    
-    const brackets = JSON.parse(localStorage.getItem('brackets') || '[]');
-    const bracketIndex = brackets.findIndex(b => b.id == bracketId);
-    
-    if (bracketIndex < 0) return;
-    
-    const bracket = brackets[bracketIndex];
-    const [_, roundIndex, matchIndex] = matchId.split('-');
-    const round = parseInt(roundIndex);
-    const match = parseInt(matchIndex);
-    
-    if (bracket.rounds[round] && bracket.rounds[round].matches[match]) {
-        const matchData = bracket.rounds[round].matches[match];
-        matchData.winner = winnerName;
-        matchData.completed = true;
-        
-        if (winnerPosition === 'top') {
-            matchData.score1 = 1;
-            matchData.score2 = 0;
-        } else {
-            matchData.score1 = 0;
-            matchData.score2 = 1;
-        }
-        
-        if (round < bracket.rounds.length - 1) {
-            const nextRound = round + 1;
-            const nextMatch = Math.floor(match / 2);
-            const nextPosition = match % 2 === 0 ? 'player1' : 'player2';
-            
-            if (bracket.rounds[nextRound] && bracket.rounds[nextRound].matches[nextMatch]) {
-                bracket.rounds[nextRound].matches[nextMatch][nextPosition] = winnerName;
-            }
-        }
-        
-        brackets[bracketIndex] = bracket;
-        localStorage.setItem('brackets', JSON.stringify(brackets));
-    }
-}
-
-function getRoundName(roundIndex, totalRounds) {
-    if (roundIndex === totalRounds - 1) return "FINALS";
-    if (roundIndex === totalRounds - 2) return "SEMI-FINALS";
-    if (roundIndex === totalRounds - 3) return "QUARTER-FINALS";
-    return `ROUND ${roundIndex + 1}`;
-}
-
-function editBracket() {
-    const preview = document.getElementById('bracketPreview');
-    preview.innerHTML = '';
-    
-    const editorForm = document.querySelector('.bracket-editor-form');
-    if (editorForm) {
-        editorForm.style.display = 'block';
-    }
-}
-
-function createBracket() {
-    const tournamentName = document.getElementById('tournamentName').value;
-    const maxPlayers = parseInt(document.getElementById('maxPlayers').value);
-    
-    if (!tournamentName) {
-        showCyberNotification('ERROR', 'Please enter a tournament name', 'error');
-        return;
-    }
-    
-    if (players.length < 2) {
-        showCyberNotification('ERROR', 'Need at least 2 players for a tournament', 'error');
-        return;
-    }
-    
-    const bracketData = {
-        id: Date.now(),
-        name: tournamentName,
-        createdAt: new Date().toISOString(),
-        players: players.slice(0, maxPlayers),
-        rounds: generateInitialRounds(players.slice(0, maxPlayers))
-    };
-    
-    saveBracket(bracketData);
-    
-    showCyberNotification('SUCCESS', 'Tournament bracket created!', 'success');
-    
-    setTimeout(() => {
-        window.location.href = `./bracket.html?id=${bracketData.id}`;
-    }, 1500);
-}
-
-function generateInitialRounds(playerList) {
-    const rounds = [];
-    const numRounds = Math.ceil(Math.log2(playerList.length));
-    
-    // First round matches
     const firstRound = {
         name: "ROUND 1",
         matches: []
     };
     
-    for (let i = 0; i < playerList.length; i += 2) {
-        const player1 = playerList[i];
-        const player2 = (i + 1 < playerList.length) ? playerList[i + 1] : null;
-        
+    for (let i = 0; i < slots / 2; i++) {
         firstRound.matches.push({
-            id: `match-${rounds.length}-${firstRound.matches.length}`,
-            player1: player1,
-            player2: player2,
+            id: `match-0-${i}`,
+            player1: null,
+            player2: null,
             winner: null,
             score1: null,
             score2: null,
@@ -464,7 +186,7 @@ function generateInitialRounds(playerList) {
     
     rounds.push(firstRound);
     
-    // Empty subsequent rounds
+    // Subsequent rounds
     for (let i = 1; i < numRounds; i++) {
         const roundName = getRoundName(i, numRounds);
         const matchesInRound = Math.pow(2, numRounds - i - 1);
@@ -476,7 +198,7 @@ function generateInitialRounds(playerList) {
         
         for (let j = 0; j < matchesInRound; j++) {
             round.matches.push({
-                id: `match-${rounds.length}-${j}`,
+                id: `match-${i}-${j}`,
                 player1: null,
                 player2: null,
                 winner: null,
@@ -492,10 +214,328 @@ function generateInitialRounds(playerList) {
     return rounds;
 }
 
-function saveBracket(bracketData) {
-    let brackets = JSON.parse(localStorage.getItem('brackets') || '[]');
-    brackets.push(bracketData);
-    localStorage.setItem('brackets', JSON.stringify(brackets));
+function renderBracket(tournamentType) {
+    const bracketContainer = document.getElementById(`${tournamentType}Bracket`);
+    if (!bracketContainer) return;
+    
+    const tournament = tournaments[tournamentType];
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const isOrganizer = currentUser?.email === 'Organizer@gmail.com';
+    
+    // Clear previous content
+    bracketContainer.innerHTML = '';
+    
+    // Add clear button at the top of the bracket (only for organizers)
+    if (isOrganizer) {
+        const clearButton = document.createElement('button');
+        clearButton.className = 'btn btn-danger btn-sm mb-3';
+        clearButton.textContent = `Clear ${tournament.name}`;
+        clearButton.onclick = () => confirmReset(tournamentType);
+        bracketContainer.appendChild(clearButton);
+    }
+    
+    const bracketGrid = document.createElement('div');
+    bracketGrid.className = 'bracket-grid';
+    bracketContainer.appendChild(bracketGrid);
+    
+    // Render each round
+    tournament.rounds.forEach((round, roundIndex) => {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'bracket-round';
+        
+        const roundTitle = document.createElement('h5');
+        roundTitle.className = 'round-title';
+        roundTitle.textContent = round.name;
+        roundDiv.appendChild(roundTitle);
+        
+        const matchesContainer = document.createElement('div');
+        matchesContainer.className = 'matches-container';
+        roundDiv.appendChild(matchesContainer);
+        
+        // Render each match
+        round.matches.forEach((match, matchIndex) => {
+            const matchDiv = document.createElement('div');
+            matchDiv.className = 'bracket-match';
+            matchDiv.dataset.matchId = match.id;
+            matchDiv.dataset.roundIndex = roundIndex;
+            matchDiv.dataset.matchIndex = matchIndex;
+            
+            // Top player slot
+            const topPlayer = document.createElement('div');
+            topPlayer.className = `match-player top ${match.player1 ? '' : 'empty-slot'} ${match.winner === match.player1 ? 'winner' : ''}`;
+            topPlayer.dataset.position = 'top';
+            topPlayer.textContent = match.player1 ? match.player1.name : 'Empty Slot';
+            
+            if (match.player1) {
+                const details = document.createElement('div');
+                details.className = 'player-details';
+                details.textContent = `Rank: ${match.player1.rank}`;
+                topPlayer.appendChild(details);
+            }
+            
+            topPlayer.onclick = () => handlePlayerClick(tournamentType, roundIndex, matchIndex, 'player1', isOrganizer);
+            matchDiv.appendChild(topPlayer);
+            
+            // Bottom player slot
+            const bottomPlayer = document.createElement('div');
+            bottomPlayer.className = `match-player bottom ${match.player2 ? '' : 'empty-slot'} ${match.winner === match.player2 ? 'winner' : ''}`;
+            bottomPlayer.dataset.position = 'bottom';
+            bottomPlayer.textContent = match.player2 ? match.player2.name : 'Empty Slot';
+            
+            if (match.player2) {
+                const details = document.createElement('div');
+                details.className = 'player-details';
+                details.textContent = `Rank: ${match.player2.rank}`;
+                bottomPlayer.appendChild(details);
+            }
+            
+            bottomPlayer.onclick = () => handlePlayerClick(tournamentType, roundIndex, matchIndex, 'player2', isOrganizer);
+            matchDiv.appendChild(bottomPlayer);
+            
+            matchesContainer.appendChild(matchDiv);
+        });
+        
+        bracketGrid.appendChild(roundDiv);
+    });
+    
+    // Add champion slot
+    const championRound = document.createElement('div');
+    championRound.className = 'bracket-round champion-round';
+    
+    const championTitle = document.createElement('h5');
+    championTitle.className = 'round-title';
+    championTitle.textContent = 'CHAMPION';
+    championRound.appendChild(championTitle);
+    
+    const championSlot = document.createElement('div');
+    championSlot.className = 'champion-slot';
+    championSlot.textContent = tournament.champion ? tournament.champion.name : 'TBD';
+    championRound.appendChild(championSlot);
+    
+    bracketGrid.appendChild(championRound);
+    
+    // Add connector lines
+    addConnectorLines(tournamentType);
+}
+
+function confirmReset(tournamentType) {
+    if (confirm(`Are you sure you want to reset the ${tournaments[tournamentType].name}? This will clear all players and matches.`)) {
+        resetTournament(tournamentType);
+    }
+}
+
+function addConnectorLines(tournamentType) {
+    const bracketContainer = document.getElementById(`${tournamentType}Bracket`);
+    if (!bracketContainer) return;
+    
+    const matches = bracketContainer.querySelectorAll('.bracket-match');
+    
+    matches.forEach(match => {
+        const matchId = match.dataset.matchId;
+        const [_, roundIndex, matchIndex] = matchId.split('-');
+        const roundNum = parseInt(roundIndex);
+        const matchNum = parseInt(matchIndex);
+        
+        // Horizontal line to next round
+        if (roundNum < tournaments[tournamentType].rounds.length - 1) {
+            const horizontalLine = document.createElement('div');
+            horizontalLine.className = 'connector-line horizontal';
+            match.appendChild(horizontalLine);
+            
+            // Vertical line for odd matches
+            if (matchNum % 2 === 0) {
+                const verticalLine = document.createElement('div');
+                verticalLine.className = 'connector-line vertical top';
+                match.appendChild(verticalLine);
+            } else {
+                const verticalLine = document.createElement('div');
+                verticalLine.className = 'connector-line vertical bottom';
+                match.appendChild(verticalLine);
+            }
+        }
+    });
+}
+
+function handlePlayerClick(tournamentType, roundIndex, matchIndex, position, isOrganizer) {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) return;
+    
+    const match = tournaments[tournamentType].rounds[roundIndex].matches[matchIndex];
+    const player = match[position];
+    
+    if (isOrganizer) {
+        // Organizer can select winners in any round if both players are present
+        const otherPosition = position === 'player1' ? 'player2' : 'player1';
+        const otherPlayer = match[otherPosition];
+        
+        if (player && otherPlayer && !match.completed) {
+            selectWinner(tournamentType, roundIndex, matchIndex, position);
+        }
+    } else {
+        // Regular user can only join empty slots in first round
+        if (roundIndex === 0 && !player) {
+            showPlayerRegistrationModal(tournamentType, match.id, position);
+        }
+    }
+}
+
+function selectWinner(tournamentType, roundIndex, matchIndex, position) {
+    const match = tournaments[tournamentType].rounds[roundIndex].matches[matchIndex];
+    const winner = match[position];
+    
+    // Mark this match as completed
+    match.winner = winner;
+    match.completed = true;
+    
+    // Update scores
+    if (position === 'player1') {
+        match.score1 = 1;
+        match.score2 = 0;
+    } else {
+        match.score1 = 0;
+        match.score2 = 1;
+    }
+    
+    // If this is not the final round, advance the winner
+    if (roundIndex < tournaments[tournamentType].rounds.length - 1) {
+        const nextRoundIndex = roundIndex + 1;
+        const nextMatchIndex = Math.floor(matchIndex / 2);
+        const nextPosition = matchIndex % 2 === 0 ? 'player1' : 'player2';
+        
+        tournaments[tournamentType].rounds[nextRoundIndex].matches[nextMatchIndex][nextPosition] = winner;
+    } else {
+        // This is the final - set champion
+        tournaments[tournamentType].champion = winner;
+        showCyberNotification('CHAMPION CROWNED', `${winner.name} has won the ${tournaments[tournamentType].name}!`, 'success');
+        
+        // Automatically reset after a delay
+        setTimeout(() => {
+            resetTournament(tournamentType);
+        }, 3000);
+    }
+    
+    // Save and re-render
+    saveTournaments();
+    renderBracket(tournamentType);
+}
+
+function resetTournament(tournamentType) {
+    tournaments[tournamentType] = {
+        name: tournaments[tournamentType].name,
+        players: [],
+        rounds: generateInitialRounds(8),
+        champion: null
+    };
+    
+    saveTournaments();
+    renderBracket(tournamentType);
+    showCyberNotification('TOURNAMENT RESET', `${tournaments[tournamentType].name} has been reset`, 'info');
+}
+
+function resetAllBrackets() {
+    resetTournament('tetris');
+    resetTournament('tekken');
+    
+    // Clear the database (API)
+    clearDatabase().then(() => {
+        showCyberNotification('SYSTEM RESET', 'All tournaments and player data have been reset', 'success');
+    }).catch(error => {
+        showCyberNotification('ERROR', 'Failed to clear database: ' + error.message, 'error');
+    });
+}
+
+async function clearDatabase() {
+    try {
+        const response = await fetch('https://demo-api-skills.vercel.app/api/GameHub/players', {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to clear database');
+        }
+    } catch (error) {
+        console.error('Database clear error:', error);
+        throw error;
+    }
+}
+
+function showPlayerRegistrationModal(tournamentType, matchId, position) {
+    const modal = new bootstrap.Modal(document.getElementById('playerRegistrationModal'));
+    document.getElementById('tournamentType').value = tournamentType;
+    document.getElementById('matchId').value = matchId;
+    document.getElementById('playerPosition').value = position;
+    modal.show();
+}
+
+function setupPlayerRegistrationModal() {
+    document.getElementById('submitPlayerRegistration').addEventListener('click', async function() {
+        const tournamentType = document.getElementById('tournamentType').value;
+        const matchId = document.getElementById('matchId').value;
+        const position = document.getElementById('playerPosition').value;
+        const userId = document.getElementById('userId').value;
+        const playerName = document.getElementById('playerName').value;
+        const playerRank = document.getElementById('playerRank').value;
+        const mainGame = document.getElementById('mainGame').value;
+        
+        if (!playerName || !playerRank || !mainGame) {
+            showCyberNotification('ERROR', 'Please fill all fields', 'error');
+            return;
+        }
+        
+        const playerData = {
+            name: playerName,
+            rank: playerRank,
+            mainGame: mainGame,
+            userId: userId
+        };
+        
+        try {
+            // Save to API
+            const response = await fetch('https://demo-api-skills.vercel.app/api/GameHub/players', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(playerData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to register player');
+            }
+            
+            // Add player to tournament
+            const [_, roundIndex, matchIndex] = matchId.split('-');
+            const roundNum = parseInt(roundIndex);
+            const matchNum = parseInt(matchIndex);
+            
+            tournaments[tournamentType].rounds[roundNum].matches[matchNum][position] = playerData;
+            
+            saveTournaments();
+            
+            // Close modal and reset form
+            const modal = bootstrap.Modal.getInstance(document.getElementById('playerRegistrationModal'));
+            modal.hide();
+            document.getElementById('playerRegistrationForm').reset();
+            
+            renderBracket(tournamentType);
+            
+            showCyberNotification('SUCCESS', 'Successfully joined tournament!', 'success');
+        } catch (error) {
+            console.error('Registration error:', error);
+            showCyberNotification('ERROR', error.message, 'error');
+        }
+    });
+}
+
+function saveTournaments() {
+    localStorage.setItem('tournaments', JSON.stringify(tournaments));
+}
+
+function getRoundName(roundIndex, totalRounds) {
+    if (roundIndex === totalRounds - 1) return "FINALS";
+    if (roundIndex === totalRounds - 2) return "SEMI-FINALS";
+    if (roundIndex === totalRounds - 3) return "QUARTER-FINALS";
+    return `ROUND ${roundIndex + 1}`;
 }
 
 // Notification system

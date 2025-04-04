@@ -1533,13 +1533,590 @@ body {
         gap: 30px;
     }
     
+    /* Adjust connector lines between matches */
+.bracket-match::after {
+    content: '';
+    position: absolute;
+    right: 0; /* Aligns the line to the edge of the match */
+    top: 50%;
+    width: 50px; /* Length of the horizontal line */
+    height: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+    transform: translateX(100%); /* Ensures the line extends to the next round */
+}
+
+/* Adjust vertical connector lines */
+.bracket-match:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: calc(100% + 20px); /* Adjusts based on spacing */
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+    transform: translateX(100%); /* Ensures alignment with the next round */
+}
+
+.bracket-match:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    height: calc(100% + 20px); /* Adjusts based on spacing */
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+    transform: translateX(100%); /* Ensures alignment with the next round */
+}
+
+/* Hide connectors for the last round */
+.bracket-round:last-of-type .bracket-match::after,
+.bracket-round:last-of-type .bracket-match::before,
+.champion-round .bracket-match::after,
+.champion-round .bracket-match::before {
+    display: none;
+}
+}
+
+.tournament-brackets-container {
+    padding: 60px 0;
+    background-color: #000;
+    border-top: 1px solid rgba(0, 242, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #00f2ff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: #aaa;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tournament-card {
+    background-color: rgba(0, 15, 30, 0.7);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.tournament-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+.tournament-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #00f2ff;
+    margin-bottom: 5px;
+}
+
+.tournament-status {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #00ff88;
+    font-weight: 600;
+}
+
+.bracket-container {
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+/* Bracket Grid */
+.bracket-grid {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 60px;
+    padding: 20px 40px;
+    min-width: max-content;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+    position: relative;
+}
+
+.round-title {
+    color: #00f2ff;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: rgba(0, 242, 255, 0.1);
+    border-radius: 4px;
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-around;
+    height: 100%;
+    gap: 40px;
+}
+
+.bracket-match {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Connector lines */
+.bracket-match::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+.bracket-match:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    height: calc(100% + 40px);
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+.bracket-match:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    bottom: 50%;
+    height: calc(100% + 40px);
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+/* Hide connectors for last round */
+.bracket-round:last-of-type .bracket-match::after,
+.bracket-round:last-of-type .bracket-match::before,
+.champion-round .bracket-match::after,
+.champion-round .bracket-match::before {
+    display: none;
+}
+
+.match-player {
+    background-color: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 10px 15px;
+    margin: 5px 0;
+    color: white;
+    min-width: 180px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.match-player.winner {
+    background-color: rgba(0, 242, 255, 0.3);
+    border: 1px solid #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+    font-weight: bold;
+}
+
+.match-player:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    border-color: #00f2ff;
+}
+
+.player-rank {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 3px;
+}
+
+.champion-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.champion-slot {
+    background-color: rgba(0, 242, 255, 0.2);
+    border: 2px solid #00f2ff;
+    padding: 15px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 0;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+/* Player Registration Modal */
+#playerRegistrationModal .modal-content {
+    background-color: #000;
+    color: #00f2ff;
+    border: 2px solid #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+#playerRegistrationModal .modal-header {
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+#playerRegistrationModal .modal-body {
+    background-color: rgba(0, 15, 30, 0.7);
+}
+
+#playerRegistrationModal .modal-footer {
+    border-top: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+/* Tournament Management Modal */
+#tournamentManagementModal .modal-content {
+    background-color: #000;
+    color: #00f2ff;
+    border: 2px solid #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+#tournamentManagementModal .modal-header {
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+#tournamentManagementModal .modal-body {
+    background-color: rgba(0, 15, 30, 0.7);
+}
+
+#tournamentManagementModal .modal-footer {
+    border-top: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+.match-info {
+    background-color: rgba(0, 242, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.match-info p {
+    margin-bottom: 5px;
+}
+
+.match-info ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.match-info li {
+    margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .bracket-grid {
+        gap: 40px;
+    }
+    
     .bracket-match::after {
-        right: -30px;
-        width: 30px;
+        right: -40px;
+        width: 40px;
     }
     
     .bracket-match:nth-child(odd)::before,
     .bracket-match:nth-child(even)::before {
+        right: -40px;
+    }
+    
+    .bracket-round {
+        min-width: 180px;
+    }
+    
+    .match-player {
+        min-width: 150px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .round-title {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .section-subtitle {
+        font-size: 14px;
+    }
+    
+    .tournament-name {
+        font-size: 20px;
+    }
+    
+    .bracket-grid {
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .bracket-round {
+        min-width: 160px;
+    }
+    
+    .match-player {
+        min-width: 130px;
+        font-size: 12px;
+    }
+}
+/* Add these styles to your existing CSS */
+
+/* Tournament Section */
+.tournaments-section {
+    padding: 60px 0;
+    background-color: #000;
+    color: white;
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #00f2ff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tournament-card {
+    background-color: rgba(0, 15, 30, 0.7);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+    height: 100%;
+}
+
+.tournament-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #00f2ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bracket-container {
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.bracket-grid {
+    display: inline-flex;
+    gap: 60px;
+    padding: 20px 40px;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.round-title {
+    color: #00f2ff;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: rgba(0, 242, 255, 0.1);
+    border-radius: 4px;
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    gap: 40px;
+}
+
+.bracket-match {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.match-player {
+    background-color: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 10px 15px;
+    margin: 5px 0;
+    color: white;
+    min-width: 180px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.match-player.empty-slot {
+    background-color: rgba(0, 242, 255, 0.05);
+    border: 1px dashed rgba(0, 242, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.match-player.winner {
+    background-color: rgba(0, 242, 255, 0.3);
+    border: 1px solid #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+    font-weight: bold;
+}
+
+.match-player:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    border-color: #00f2ff;
+}
+
+.champion-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.champion-slot {
+    background-color: rgba(0, 242, 255, 0.2);
+    border: 2px solid #00f2ff;
+    padding: 15px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 0;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+/* Connector lines */
+.connector-line {
+    position: absolute;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+.connector-line.horizontal {
+    right: -60px;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+}
+
+.connector-line.vertical {
+    right: -60px;
+    width: 2px;
+}
+
+.connector-line.vertical.top {
+    top: 50%;
+    height: calc(100% + 40px);
+}
+
+.connector-line.vertical.bottom {
+    bottom: 50%;
+    height: calc(100% + 40px);
+}
+
+/* Modal Styles */
+.cyber-modal {
+    background-color: rgba(0, 15, 30, 0.95);
+    border: 1px solid #00f2ff;
+    color: white;
+}
+
+.cyber-modal .modal-header {
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+.cyber-modal .modal-title {
+    color: #00f2ff;
+}
+
+.cyber-modal .btn-close {
+    filter: invert(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .bracket-grid {
+        gap: 30px;
+    }
+    
+    .connector-line.horizontal {
+        right: -30px;
+        width: 30px;
+    }
+    
+    .connector-line.vertical {
         right: -30px;
     }
 }
+
+@media (max-width: 767px) {
+    .tournaments-section {
+        padding: 40px; } }
+
+        .player-details {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+
+        .match-player {
+            min-height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .player-details {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-top: 5px;
+        }
+        
+        .empty-slot {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .empty-slot:hover {
+            background-color: rgba(0, 242, 255, 0.1) !important;
+        }
