@@ -56,12 +56,11 @@ body {
 
 /* Adjustments for login and signup links in the navbar */
 .navbar-nav .nav-link i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 16px; /* Consistent icon size */
-    vertical-align: middle; /* Align icon with text */
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
 }
 
-/* Specifically target the right side navbar links */
 .navbar-nav.ms-auto .nav-link {
     display: flex;
     align-items: center;
@@ -69,15 +68,13 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Changed hover effect to only affect text color, no background */
 .navbar-nav.ms-auto .nav-link:hover {
     color: cyan;
 }
 
-/* Fix vertical alignment of icons with text */
 .navbar-nav.ms-auto .nav-link i {
     position: relative;
-    top: -1px; /* Fine-tune vertical alignment */
+    top: -1px;
 }
 
 .nav-icons {
@@ -158,7 +155,7 @@ body {
     z-index: -1;
 }
 
-/* Main Container Settings - Updated to be full width */
+/* Main Container Settings */
 .main-container {
     width: 100%;
     max-width: 100%;
@@ -166,10 +163,10 @@ body {
     padding: 0;
 }
 
-/* Header Styles - Updated for better mobile centering */
+/* Header Styles */
 .login-header {
     text-align: center;
-    padding: 55px 15px 0; /* Added horizontal padding */
+    padding: 55px 15px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -185,12 +182,12 @@ body {
         0 0 5px #00f2ff,
         0 0 5px #00f2ff,
         0 0 13px #00f2ff;
-    text-align: center; /* Ensure text is centered */
+    text-align: center;
 }
 
 .login-header p {
     font-size: 18px;
-    text-align: center; /* Ensure text is centered */
+    text-align: center;
     width: 100%;
 }
 
@@ -198,29 +195,29 @@ body {
     color: #00f2ff;
 }
 
-/* Top Image Container - Updated for full width */
+/* Top Image Container */
 .top-image-container {
     height: 200px;
     background-image: url('../../../../assets/img/login\ headline\ \ 1.png');
     background-size: cover;
     background-position: center;
-    border-radius: 0; /* Removed border radius for full width effect */
+    border-radius: 0;
     border-left: 0;
     border-right: 0;
     border-top: 2px solid #00f2ff;
     border-bottom: 2px solid #00f2ff;
-    display: flex; /* Added for better centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Content Layout - Updated for full height and width */
+/* Content Layout */
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 0; /* Removed gap between containers */
-    margin: 0; /* Removed margins */
-    height: calc(100vh - 300px); /* Adjusted height calculation */
+    gap: 0;
+    margin: 0;
+    height: calc(100vh - 300px);
     min-height: 500px;
 }
 
@@ -231,11 +228,11 @@ body {
     background-image: url('../../../../assets/img/login-pic.png');
     background-size: cover;
     background-position: center;
-    border-radius: 0; /* Removed border radius for flush edges */
-    border: none; /* Removed borders */
-    border-right: 2px solid #00f2ff; /* Add only right border */
+    border-radius: 0;
+    border: none;
+    border-right: 2px solid #00f2ff;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    min-height: 100%; /* Changed to 100% to match container height */
+    min-height: 100%;
     align-items: center;
 }
 
@@ -244,17 +241,17 @@ body {
     flex: 0.6;
     width: 30%;
     background-color: rgba(0, 6, 51, 0.85);
-    border: none; /* Removed borders */
-    border-radius: 0; /* Removed border radius */
+    border: none;
+    border-radius: 0;
     padding: 25px;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-    height: 100%; /* Changed to 100% to match container height */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* Inner Container for Form - Updated for better proportions */
+/* Inner Container for Form */
 .inner-form-container {
     background-color: rgba(0, 20, 150, 0.5);
     border: 1px solid rgba(0, 242, 255, 0.7);
@@ -416,7 +413,7 @@ body {
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
 }
 
-/* Footer - Updated to stick to bottom with no margins */
+/* Footer */
 .footer { 
     text-align: center;
     color: #fdfdfd;
@@ -427,7 +424,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Mobile logo fix - Added from first CSS */
+/* Mobile logo fix */
 @media (max-width: 991px) {
     .logo-container-mobile {
         margin-right: auto;
@@ -440,24 +437,22 @@ body {
     }
 }
 
-/* Media query for mobile view - Updated with better proportions */
+/* Media query for mobile view */
 @media (max-width: 991px) {
-    /* This will ensure the desktop icons are completely hidden on mobile */
     .nav-icons {
-        display: none !important; /* Added !important to override any other styles */
-        visibility: hidden; /* Double protection to ensure it's hidden */
+        display: none !important;
+        visibility: hidden;
         opacity: 0;
     }
 
     .nav-icons-mobile {
-        display: flex; /* Show mobile social icons */
+        display: flex;
     }
 
     .footer {
-        margin-bottom: 70px; /* Changed from 200px to 70px to match first CSS */
+        margin-bottom: 70px;
     }
     
-    /* Enhanced navbar drop shadow for mobile - From first CSS */
     .navbar {
         box-shadow: 0 3px 12px rgba(0, 242, 255, 0.5);
     }
@@ -504,7 +499,6 @@ body {
         margin-bottom: 1rem;
     }
     
-    /* Better form layout for mobile */
     .login-form {
         height: auto;
         padding: 0 15px;
@@ -518,15 +512,13 @@ body {
         margin-bottom: 20px;
     }
     
-    /* Added from first CSS for login/signup links */
     .navbar-nav.ms-auto .nav-link {
         padding: 8px 12px;
         margin: 5px 0;
     }
     
-    /* Improved centering for login header on mobile */
     .login-header {
-        padding: 30px 20px 0; /* Reduced top padding, increased horizontal padding */
+        padding: 30px 20px 0;
     }
     
     .top-image-container {
@@ -534,29 +526,28 @@ body {
         text-align: center;
     }
     
-    /* Center the LOGIN PAGE text better */
     .glow-text {
         width: 100%;
         text-align: center;
     }
 }
 
-/* Ensure the desktop view is correct - From first CSS */
+/* Ensure the desktop view is correct */
 @media (min-width: 992px) {
     .nav-icons {
-        display: flex !important; /* Show desktop icons */
+        display: flex !important;
     }
 
     .nav-icons-mobile {
-        display: none !important; /* Hide mobile icons */
+        display: none !important;
     }
 
     .footer {
-        margin-bottom: 0; /* Remove extra footer space */
+        margin-bottom: 0;
     }
 }
 
-/* Large Tablets and Small Desktops - From first CSS */
+/* Large Tablets and Small Desktops */
 @media (max-width: 1200px) {
     .glow-text {
         font-size: 36px;
@@ -567,7 +558,7 @@ body {
     }
 }
 
-/* Tablets - From first CSS */
+/* Tablets */
 @media (max-width: 992px) {
     .glow-text {
         font-size: 32px;
@@ -577,19 +568,17 @@ body {
         font-size: 32px;
     }
     
-    /* Added from first CSS for arcade container */
     .arcade-container {
         max-height: 150px;
     }
     
-    /* Adjust login/signup links for mobile */
     .navbar-nav.ms-auto .nav-link {
         padding: 8px 12px;
         margin: 5px 0;
     }
 }
 
-/* Large Phones - Improved for better rectangular/proportional layout */
+/* Large Phones */
 @media (max-width: 768px) {
     .glow-text {
         font-size: 28px;
@@ -597,7 +586,7 @@ body {
     
     .login-header p {
         font-size: 16px;
-        padding: 0 10px; /* Add horizontal padding */
+        padding: 0 10px;
     }
     
     .form-title {
@@ -619,7 +608,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px 15px 0; /* Adjusted padding */
+        padding: 20px 15px 0;
     }
     
     .submit-button {
@@ -627,7 +616,6 @@ body {
         padding: 12px;
     }
     
-    /* Adjustments for the form container */
     .login-form-container {
         min-height: 350px;
         padding: 15px;
@@ -652,18 +640,18 @@ body {
     }
 }
 
-/* Small Phones - Improved for better rectangular/proportional layout */
+/* Small Phones */
 @media (max-width: 576px) {
     .glow-text {
         font-size: 24px;
         width: 100%;
         text-align: center;
-        padding: 0 5px; /* Add small horizontal padding */
+        padding: 0 5px;
     }
     
     .login-header {
         width: 100%;
-        padding: 15px 10px 0; /* Reduced top padding, kept horizontal padding */
+        padding: 15px 10px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -674,7 +662,7 @@ body {
         font-size: 14px;
         width: 100%;
         text-align: center;
-        padding: 0 5px; /* Add small horizontal padding */
+        padding: 0 5px;
     }
     
     .form-title {
@@ -690,7 +678,6 @@ body {
         align-items: center;
     }
     
-    /* Remove fixed aspect ratio and adjust for better vertical centering */
     .inner-form-container {
         width: 85%;
         aspect-ratio: auto;
@@ -726,13 +713,11 @@ body {
         font-size: 12px;
     }
     
-    /* Form spacing improvements */
     .form-inputs {
         gap: 12px;
         margin-bottom: 25px;
     }
     
-    /* Additional navbar styling for very small screens */
     .navbar-nav .nav-link {
         font-size: 14px;
         padding: 8px;
@@ -746,7 +731,6 @@ body {
         font-size: 8px;
     }
 
-    /* Further adjustments for very small screens */
     .navbar-nav.ms-auto .nav-link {
         padding: 6px 10px;
         font-size: 12px;
@@ -757,7 +741,6 @@ body {
         margin-right: 5px;
     }
     
-    /* Smaller checkmark for mobile */
     .checkmark {
         height: 16px;
         width: 16px;
@@ -770,7 +753,6 @@ body {
         height: 8px;
     }
     
-    /* Form layout improvements */
     .form-inputs {
         margin-bottom: 10px;
     }
@@ -779,7 +761,6 @@ body {
         margin-bottom: 10px;
     }
     
-    /* Ensure pixel-text is properly centered */
     .pixel-text {
         display: inline-block;
     }
@@ -811,7 +792,6 @@ body {
         font-size: 9px;
     }
     
-    /* Additional vertical centering for very small screens */
     .login-form-container {
         min-height: 350px;
         display: flex;
@@ -825,3 +805,246 @@ body {
 }
 
 .abouttxt {color : #00f2ff;}
+
+/* Container for notifications */
+.cyber-notification-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    pointer-events: none;
+}
+
+.cyber-notification {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #00f2ff;
+    background-color: rgba(0, 6, 51, 0.9);
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.5;
+    width: 300px;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 9999;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.cyber-notification.cyber-show {
+    transform: translateX(0);
+}
+
+.cyber-notification.cyber-hide {
+    transform: translateX(120%);
+}
+
+.cyber-notification.cyber-flicker {
+    animation: cyber-flicker 0.1s;
+}
+
+@keyframes cyber-flicker {
+    0% { opacity: 0.7; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Notification Types */
+.cyber-success {
+    border-color: #00f2ff;
+    background-color: rgba(0, 20, 80, 0.9);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.7);
+}
+
+.cyber-error {
+    border-color: #ff003c;
+    background-color: rgba(80, 0, 20, 0.9);
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.7);
+}
+
+/* Header Styles */
+.cyber-header {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #00f2ff;
+    text-transform: uppercase;
+}
+
+.cyber-glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.cyber-glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 #ff003c;
+    top: 0;
+    color: inherit;
+    overflow: hidden;
+    clip: rect(0,900px,0,0);
+    animation: cyber-glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.cyber-glitch-blue:after {
+    left: -2px;
+    text-shadow: -2px 0 #00f2ff;
+    animation: cyber-glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+@keyframes cyber-glitch-anim {
+    0% { clip: rect(62px,9999px,94px,0) }
+    20% { clip: rect(33px,9999px,16px,0) }
+    40% { clip: rect(96px,9999px,98px,0) }
+    60% { clip: rect(48px,9999px,77px,0) }
+    80% { clip: rect(50px,9999px,34px,0) }
+    100% { clip: rect(82px,9999px,58px,0) }
+}
+
+@keyframes cyber-glitch-anim2 {
+    0% { clip: rect(65px,9999px,15px,0) }
+    20% { clip: rect(25px,9999px,35px,0) }
+    40% { clip: rect(85px,9999px,90px,0) }
+    60% { clip: rect(90px,9999px,10px,0) }
+    80% { clip: rect(70px,9999px,100px,0) }
+    100% { clip: rect(95px,9999px,75px,0) }
+}
+
+/* Content Styles */
+.cyber-content {
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* Close Button */
+.cyber-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #00f2ff;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.cyber-close:hover {
+    opacity: 1;
+    color: white;
+}
+
+/* Scanlines Effect */
+.cyber-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03) 0%,
+        rgba(255,255,255,0) 50%,
+        rgba(255,255,255,0.03) 100%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: cyber-scanline 8s linear infinite;
+}
+
+@keyframes cyber-scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cyber-notification-container {
+        right: 5%;
+        width: 90%;
+    }
+    
+    .cyber-notification {
+        width: 100%;
+        max-width: 300px;
+        font-size: 10px;
+        padding: 15px;
+    }
+    
+    .cyber-header {
+        font-size: 12px;
+    }
+    
+    .cyber-content {
+        font-size: 10px;
+    }
+}
+
+/* User dropdown styles */
+.nav-user-dropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-user-dropdown .dropdown-toggle:hover,
+.nav-user-dropdown .dropdown-toggle:focus {
+    color: cyan;
+}
+
+.nav-user-dropdown .dropdown-toggle i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 6, 51, 0.95);
+    border: 1px solid rgba(0, 242, 255, 0.7);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: rgba(0, 242, 255, 0.2);
+    color: cyan;
+}
+
+.dropdown-divider {
+    border-top: 1px solid rgba(0, 242, 255, 0.3);
+    margin: 0.3rem 0;
+}
+
+.logout-link {
+    display: flex;
+    align-items: center;
+}
+
+.logout-link i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Ensure the auth links are displayed in a row */
+#authLinks {
+    display: flex;
+    align-items: center;
+}

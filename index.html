@@ -25,7 +25,7 @@
 
                 <!-- Left Links -->
                 <div class="navbar-nav me-auto">
-                    <a class="nav-link" href="./index.html"><span class = "abouttxt">HOME</span></a>
+                    <a class="nav-link" href="./index.html"><span class="abouttxt">HOME</span></a>
                     <a class="nav-link" href="./pages/page1/index.html">ABOUT US</a>
                 </div>
 
@@ -37,8 +37,23 @@
 
                 <!-- Right Links -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="./pages/page3/index.html"><i class="fa-solid fa-user"></i>LOGIN</a>
-                    <a class="nav-link" href="./pages/page2/index.html"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
+                    <div id="authLinks">
+                        <!-- Default state (logged out) -->
+                        <a class="nav-link" href="./pages/page3/index.html"><i class="fa-solid fa-user"></i> LOGIN</a>
+                        <a class="nav-link" href="./pages/page2/index.html"><i class="fa-solid fa-user-group"></i> SIGN UP</a>
+                    </div>
+                    <!-- Logged in state (initially hidden) -->
+                    <div id="userDropdown" class="nav-user-dropdown dropdown" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-circle"></i> <span id="usernameDisplay"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item logout-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -234,9 +249,115 @@
         </div>
     </section>
 
+    <!-- Tournament Bracket Creator (Visible only to logged-in organizers) -->
+    <section id="bracketCreatorContainer" class="bracket-creator-container" style="display: none;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bracket-creator-header">
+                        <h2 class="bracket-title">TOURNAMENT BRACKET CREATOR</h2>
+                        <p class="bracket-subtitle">Create and manage your tournament brackets</p>
+                    </div>
+                    
+                    <div class="bracket-control-panel">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="tournamentName" class="form-label">Tournament Name</label>
+                                <input type="text" class="form-control cyber-input" id="tournamentName" placeholder="Enter tournament name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gameSelect" class="form-label">Game</label>
+                                <select class="form-select cyber-input" id="gameSelect">
+                                    <option selected>Select a game</option>
+                                    <option value="tetris">Tetris</option>
+                                    <option value="tekken">Tekken</option>
+                                    <option value="street-fighter">Street Fighter</option>
+                                    <option value="valorant">Valorant</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="startDate" class="form-label">Start Date</label>
+                                <input type="date" class="form-control cyber-input" id="startDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="endDate" class="form-label">End Date</label>
+                                <input type="date" class="form-control cyber-input" id="endDate">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="maxPlayers" class="form-label">Max Players</label>
+                                <select class="form-select cyber-input" id="maxPlayers">
+                                    <option value="8">8</option>
+                                    <option value="16" selected>16</option>
+                                    <option value="32">32</option>
+                                    <option value="64">64</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="tournamentDesc" class="form-label">Description</label>
+                                <textarea class="form-control cyber-input" id="tournamentDesc" rows="3" placeholder="Enter tournament description"></textarea>
+                            </div>
+                            <div class="col-12 d-flex justify-content-between">
+                                <button type="button" class="btn cyber-btn" id="managePlayersBtn">
+                                    <i class="fas fa-users me-2"></i>Manage Players
+                                </button>
+                                <div>
+                                    <button type="button" class="btn cyber-btn me-2" id="previewBracketBtn">
+                                        <i class="fas fa-eye me-2"></i>Preview
+                                    </button>
+                                    <button type="button" class="btn cyber-btn-primary" id="createBracketBtn">
+                                        <i class="fas fa-plus me-2"></i>Create Bracket
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bracket-preview mt-4" id="bracketPreview">
+                        <div class="preview-placeholder">
+                            <i class="fas fa-trophy"></i>
+                            <p>Your bracket preview will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Management Modal -->
+    <div class="modal fade" id="playerManagementModal" tabindex="-1" aria-labelledby="playerManagementModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content cyber-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="playerManagementModalLabel">Manage Players</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closePlayerModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control cyber-input" id="playerNameInput" placeholder="Enter player name">
+                            <button class="btn cyber-btn" type="button" onclick="addPlayer()">Add</button>
+                        </div>
+                    </div>
+                    <div class="player-list-container">
+                        <h6>Players</h6>
+                        <ul id="playerList" class="list-unstyled player-list">
+                            <!-- Players will be added here dynamically -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn cyber-btn" data-bs-dismiss="modal" onclick="closePlayerModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="footer">
         ©2025 PARAS - eSports tournament scheduling
     </div>
+
+    <!-- Notification Container (dynamically added by JavaScript) -->
+    <div class="cyber-notification-container"></div>
 
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -35,8 +35,23 @@
 
                 <!-- Right Links -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="../page3/index.html"><span class="abouttxt"><i class="fa-solid fa-user"></i>LOGIN</span></a>
-                    <a class="nav-link" href="../page2/index.html"><i class="fa-solid fa-user-group"></i>SIGN UP</a>
+                    <div id="authLinks">
+                        <!-- Default state (logged out) -->
+                        <a class="nav-link active" href="../page3/index.html"><i class="fa-solid fa-user"></i> LOGIN</a>
+                        <a class="nav-link" href="../page2/index.html"><i class="fa-solid fa-user-group"></i> SIGN UP</a>
+                    </div>
+                    <!-- Logged in state (initially hidden) -->
+                    <div id="userDropdown" class="nav-user-dropdown dropdown" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-circle"></i> <span id="usernameDisplay"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item logout-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,7 +96,7 @@
                     <h2 class="form-title">WELCOME <br>BACK</h2>
                     <form class="login-form">
                         <div class="form-inputs">
-                            <input type="text" placeholder="Username" required>
+                            <input type="email" placeholder="Email" required>
                             <input type="password" placeholder="Password" required>
                             
                             <div class="remember-me">
@@ -105,6 +120,27 @@
             </div>
         </div>
     </div>
+
+<!-- Player Management Modal -->
+<div id="playerManagementModal" class="player-management-modal">
+    <div class="player-management-content">
+        <div class="player-management-header">
+            <h3 class="player-management-title">Manage Players</h3>
+            <button class="player-management-close" onclick="closePlayerModal()">&times;</button>
+        </div>
+        <div class="player-management-body">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control cyber-input" id="playerNameInput" placeholder="Player name">
+                <button class="btn cyber-btn-primary" onclick="addPlayer()">Add</button>
+            </div>
+            <ul id="playerList" class="player-list"></ul>
+        </div>
+        <div class="player-management-footer">
+            <button class="btn cyber-btn" onclick="closePlayerModal()">Close</button>
+        </div>
+    </div>
+</div>
+
 
     <!-- Footer -->
     <div class="footer">

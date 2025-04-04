@@ -56,12 +56,11 @@ body {
 
 /* Adjustments for login and signup links in the navbar */
 .navbar-nav .nav-link i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 16px; /* Consistent icon size */
-    vertical-align: middle; /* Align icon with text */
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
 }
 
-/* Specifically target the right side navbar links */
 .navbar-nav.ms-auto .nav-link {
     display: flex;
     align-items: center;
@@ -69,15 +68,13 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Changed hover effect to only affect text color, no background */
 .navbar-nav.ms-auto .nav-link:hover {
     color: cyan;
 }
 
-/* Fix vertical alignment of icons with text */
 .navbar-nav.ms-auto .nav-link i {
     position: relative;
-    top: -1px; /* Fine-tune vertical alignment */
+    top: -1px;
 }
 
 .nav-icons {
@@ -109,7 +106,6 @@ body {
     font-size: 20px;
 }
 
-/* Mobile social icons styles */
 .nav-icons-mobile {
     display: none;
     width: 100%;
@@ -133,7 +129,6 @@ body {
     color: cyan;
 }
 
-/* Mobile logo fix */
 @media (max-width: 991px) {
     .logo-container-mobile {
         margin-right: auto;
@@ -146,61 +141,54 @@ body {
     }
 }
 
-/* Media query for mobile view */
 @media (max-width: 991px) {
-    /* This will ensure the desktop icons are completely hidden on mobile */
     .nav-icons {
-        display: none !important; /* Added !important to override any other styles */
-        visibility: hidden; /* Double protection to ensure it's hidden */
+        display: none !important;
+        visibility: hidden;
         opacity: 0;
     }
 
     .nav-icons-mobile {
-        display: flex; /* Show mobile social icons */
+        display: flex;
     }
 
     .footer {
-        margin-bottom: 200px; /* Add space for the mobile social icons */
+        margin-bottom: 200px;
     }
 }
 
-/* Ensure the desktop view is correct */
 @media (min-width: 992px) {
     .nav-icons {
-        display: flex !important; /* Show desktop icons */
+        display: flex !important;
     }
 
     .nav-icons-mobile {
-        display: none !important; /* Hide mobile icons */
+        display: none !important;
     }
 
     .footer {
-        margin-bottom: 0; /* Remove extra footer space */
+        margin-bottom: 0;
     }
 }
 
-/* Desktop Hero and Carousel Container */
 .hero-carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-/* Tablet Hero and Carousel Container */
 .tablet-hero-carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-/* Mobile Hero and Carousel Container */
 .mobile-hero-carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-/* Carousel Overlay */
 .carousel-overlay {
     position: absolute;
     top: 0;
@@ -211,7 +199,6 @@ body {
     z-index: 2;
 }
 
-/* Center the Hero Text */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -222,7 +209,6 @@ body {
     z-index: 3;
 }
 
-/* Hero Title */
 .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 80px;
@@ -239,7 +225,6 @@ body {
     font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Hero Subtitle */
 .hero-subtitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
@@ -248,7 +233,6 @@ body {
     margin-top: 5px;
 }
 
-/* Desktop Carousel */
 #desktopImageCarousel {
     position: relative;
     z-index: 1;
@@ -266,7 +250,6 @@ body {
     object-fit: cover;
 }
 
-/* Tablet Carousel */
 #tabletImageCarousel {
     position: relative;
     z-index: 1;
@@ -284,7 +267,6 @@ body {
     object-fit: cover;
 }
 
-/* Mobile Carousel */
 #mobileImageCarousel {
     position: relative;
     z-index: 1;
@@ -302,7 +284,6 @@ body {
     object-fit: cover;
 }
 
-/* Carousel Controls */
 .carousel-control-prev,
 .carousel-control-next {
     z-index: 4;
@@ -322,7 +303,6 @@ body {
     bottom: 20px;
 }
 
-/* Tournament Sections */
 .tournaments-section {
     padding: 0;
     margin: 0;
@@ -387,7 +367,6 @@ body {
     font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Arcade Section */
 .arcade-section {
     width: 100%;
     overflow: hidden;
@@ -406,13 +385,12 @@ body {
     object-fit: cover;
 }
 
-/* Footer Styles */
 .footer {
     background-color: #000;
     width: 100%;
     padding: 0;
     margin-top: 0;
-    margin-bottom: 40px; /* Add bottom margin for mobile social icons */
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -435,14 +413,12 @@ body {
     margin: 0;
 }
 
-/* Media Queries for Responsiveness */
 @media (min-width: 992px) {
     .footer {
-        margin-bottom: 50px; /* Reset margin for desktop */
+        margin-bottom: 50px;
     }
 }
 
-/* Tablet-specific styles */
 @media (min-width: 768px) and (max-width: 991px) {
     .hero-title {
         font-size: 65px;
@@ -475,7 +451,6 @@ body {
     }
 }
 
-/* Large Tablets and Small Desktops */
 @media (max-width: 1200px) {
     .tournament-title {
         font-size: 70px;
@@ -494,7 +469,6 @@ body {
     }
 }
 
-/* Tablets */
 @media (max-width: 992px) {
     .tournament-title {
         font-size: 60px;
@@ -521,16 +495,13 @@ body {
         max-height: 150px;
     }
     
-    /* Adjust login/signup links for mobile */
     .navbar-nav.ms-auto .nav-link {
         padding: 8px 12px;
         margin: 5px 0;
     }
 }
 
-/* Large Phones */
 @media (max-width: 767px) {
-    /* Mobile Hero Specific Styles */
     #mobileImageCarousel .carousel-inner {
         height: 60vh;
         max-height: 500px;
@@ -554,9 +525,7 @@ body {
     }
 }
 
-/* Small Phones */
 @media (max-width: 576px) {
-    /* Mobile Hero Specific Styles */
     #mobileImageCarousel .carousel-inner {
         height: 50vh;
         max-height: 400px;
@@ -599,7 +568,6 @@ body {
         font-size: 8px;
     }
 
-    /* Further adjustments for very small screens */
     .navbar-nav.ms-auto .nav-link {
         padding: 6px 10px;
         font-size: 12px;
@@ -614,3 +582,964 @@ body {
     }
 }
 .abouttxt {color : #00f2ff;}
+
+.nav-user-dropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-user-dropdown .dropdown-toggle:hover,
+.nav-user-dropdown .dropdown-toggle:focus {
+    color: cyan;
+}
+
+.nav-user-dropdown .dropdown-toggle i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 6, 51, 0.95);
+    border: 1px solid rgba(0, 242, 255, 0.7);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: rgba(0, 242, 255, 0.2);
+    color: cyan;
+}
+
+.dropdown-divider {
+    border-top: 1px solid rgba(0, 242, 255, 0.3);
+    margin: 0.3rem 0;
+}
+
+.logout-link {
+    display: flex;
+    align-items: center;
+}
+
+.logout-link i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+#authLinks {
+    display: flex;
+    align-items: center;
+}
+
+/* Tournament Bracket Creator Styles */
+.bracket-creator-container {
+    background-color: #000;
+    padding: 60px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+    margin: 40px 0;
+}
+
+.bracket-creator-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bracket-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #00f2ff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.bracket-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: #aaa;
+    font-size: 16px;
+}
+
+.bracket-control-panel {
+    background-color: rgba(0, 15, 30, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.form-label {
+    color: #00f2ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.cyber-input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.cyber-input:focus {
+    background-color: rgba(0, 10, 20, 0.8);
+    border-color: #00f2ff;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.cyber-btn, .cyber-btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.cyber-btn {
+    background-color: transparent;
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+}
+
+.cyber-btn:hover {
+    background-color: rgba(0, 242, 255, 0.1);
+    color: #00f2ff;
+}
+
+.cyber-btn-primary {
+    background-color: #00f2ff;
+    border: 1px solid #00f2ff;
+    color: #000;
+}
+
+.cyber-btn-primary:hover {
+    background-color: #00d9e6;
+    border-color: #00d9e6;
+    color: #000;
+}
+
+.bracket-preview {
+    background-color: rgba(0, 15, 30, 0.7);
+    border: 1px dashed rgba(0, 242, 255, 0.3);
+    border-radius: 8px;
+    min-height: 200px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-placeholder {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.preview-placeholder i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: rgba(0, 242, 255, 0.5);
+}
+
+.preview-placeholder p {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/* Make the bracket container scroll horizontally better */
+.bracket-preview-content {
+    width: 100%;
+    overflow-x: auto;
+    padding: 30px 20px;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #00f2ff rgba(0, 15, 30, 0.7); /* For Firefox */
+    position: relative;
+}
+
+/* Custom scrollbar styling for better visibility */
+.bracket-preview-content::-webkit-scrollbar {
+    height: 8px;
+}
+
+.bracket-preview-content::-webkit-scrollbar-track {
+    background: rgba(0, 15, 30, 0.7);
+    border-radius: 4px;
+}
+
+.bracket-preview-content::-webkit-scrollbar-thumb {
+    background: #00f2ff;
+    border-radius: 4px;
+}
+
+.bracket-preview-content::-webkit-scrollbar-thumb:hover {
+    background: #00d9e6;
+}
+
+/* Improve bracket grid layout */
+.bracket-grid {
+    display: inline-flex; /* Changes from flex to inline-flex to allow horizontal scrolling */
+    flex-direction: row;
+    justify-content: flex-start; /* Changed from center to allow more natural scrolling */
+    gap: 60px; /* Increased spacing between rounds */
+    padding: 20px 40px; /* Added horizontal padding */
+    min-width: max-content; /* Ensures content doesn't shrink */
+}
+
+/* Fix alignment issues with matches */
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+    position: relative;
+}
+
+/* Better spacing for matches */
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-around; /* Helps with vertical alignment */
+    height: 100%;
+    gap: 40px;
+}
+
+/* Fix connector lines between matches */
+.bracket-match {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.bracket-match::after {
+    content: '';
+    position: absolute;
+    right: -60px; /* Match the gap between rounds */
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+/* Adjust vertical connector lines */
+.bracket-match:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    height: calc(100% + 40px); /* Increased height for better visibility */
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+.bracket-match:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    bottom: 50%;
+    height: calc(100% + 40px); /* Increased height for better visibility */
+    width: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+/* Hide connectors for last round */
+.bracket-round:last-of-type .bracket-match::after,
+.bracket-round:last-of-type .bracket-match::before,
+.champion-round .bracket-match::after,
+.champion-round .bracket-match::before {
+    display: none;
+}
+
+.match-player {
+    background-color: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 10px 15px;
+    margin: 5px 0;
+    color: white;
+    min-width: 180px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Winner highlighting */
+.match-player.winner {
+    background-color: rgba(0, 242, 255, 0.3);
+    border: 1px solid #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+    font-weight: bold;
+}
+
+.match-player:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    border-color: #00f2ff;
+}
+
+.champion-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* Ensures consistent height */
+}
+
+.champion-slot {
+    background-color: rgba(0, 242, 255, 0.2);
+    border: 2px solid #00f2ff;
+    padding: 15px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 0; /* Removes default margin */
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+.champion-title {
+    color: #00f2ff;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Add visual indicator for scrollable content */
+.bracket-preview-content::after {
+    content: '←→';
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #00f2ff;
+    font-size: 16px;
+    opacity: 0.8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
+
+/* Better alignment for rounds with fewer matches */
+.bracket-round:nth-child(2) .matches-container {
+    padding-top: 25%; /* Adjust as needed */
+}
+
+.bracket-round:nth-child(3) .matches-container {
+    padding-top: 75%; /* Adjust as needed */
+}
+
+.round-title {
+    color: #00f2ff;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: rgba(0, 242, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Help tooltip */
+.bracket-help {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: rgba(0, 15, 30, 0.8);
+    color: #00f2ff;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bracket-preview-content:hover .bracket-help {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .bracket-grid {
+        gap: 40px;
+        padding: 20px 30px;
+    }
+    
+    .bracket-match::after {
+        right: -40px;
+        width: 40px;
+    }
+    
+    .bracket-match:nth-child(odd)::before,
+    .bracket-match:nth-child(even)::before {
+        right: -40px;
+    }
+    
+    .bracket-round {
+        min-width: 180px;
+    }
+    
+    .bracket-creator-container {
+        margin-bottom: 80px;
+    }
+}
+
+.bracket-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.manage-players-btn {
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Player Management Modal */
+.player-management-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-management-content {
+    background-color: rgba(0, 15, 30, 0.95);
+    border: 1px solid #00f2ff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+}
+
+.player-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+.player-management-title {
+    color: #00f2ff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.player-management-close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.player-management-body {
+    margin-bottom: 20px;
+}
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.player-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+    color: white;
+}
+
+.player-list-item:last-child {
+    border-bottom: none;
+}
+
+.player-actions button {
+    background: none;
+    border: none;
+    color: rgba(255, 0, 51, 0.8);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.player-actions button:hover {
+    color: #ff0033;
+}
+
+.player-management-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* Centered notifications */
+.cyber-notification-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    width: 90%;
+    max-width: 400px;
+}
+
+.cyber-notification {
+    background-color: rgba(0, 15, 30, 0.9);
+    border: 1px solid #00f2ff;
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    animation: slideIn 0.3s forwards;
+    width: 100%;
+}
+
+.cyber-notification.success {
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.cyber-notification.error {
+    border-color: #ff0033;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.3); 
+}
+
+.cyber-notification.info {
+    border-color: #0099ff;
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.3);
+}
+
+.cyber-header {
+    margin-bottom: 8px;
+}
+
+.cyber-glitch {
+    font-weight: bold;
+    color: #00f2ff;
+}
+
+.cyber-content {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cyber-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 242, 255, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes slideIn {
+    from { transform: translate(-50%, -20px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.cyber-notification.hide {
+    animation: slideOut 0.3s forwards;
+}
+
+@keyframes slideOut {
+    from { transform: translate(-50%, 0); opacity: 1; }
+    to { transform: translate(-50%, -20px); opacity: 0; }
+}
+
+/* Spinner animation */
+.spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Add space at the bottom to prevent content being hidden by mobile nav */
+@media (max-width: 991px) {
+    .bracket-creator-container {
+        margin-bottom: 80px;
+    }
+    
+    .bracket-grid {
+        gap: 20px;
+    }
+    
+    .bracket-round {
+        min-width: 160px;
+    }
+    
+    .match-player {
+        min-width: 140px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bracket-title {
+        font-size: 32px;
+    }
+    
+    .bracket-subtitle {
+        font-size: 14px;
+    }
+    
+    .bracket-control-panel {
+        padding: 20px;
+    }
+    
+    .bracket-round {
+        min-width: 140px;
+    }
+    
+    .match-player {
+        min-width: 120px;
+        font-size: 12px;
+    }
+    
+    .round-title {
+        font-size: 12px;
+    }
+}
+
+/* Player Management Modal Styles */
+#playerManagementModal .modal-content {
+    background-color: #000;
+    color: #00f2ff;
+    border: 2px solid #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+  }
+  
+  #playerManagementModal .modal-header {
+    border-bottom: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 15px 20px;
+  }
+  
+  #playerManagementModal .modal-title {
+    color: #00f2ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  #playerManagementModal .modal-body {
+    padding: 20px;
+    background-color: rgba(0, 15, 30, 0.7);
+  }
+  
+  #playerManagementModal .modal-footer {
+    border-top: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 15px 20px;
+  }
+  
+  #playerManagementModal .close {
+    color: #00f2ff;
+    opacity: 0.8;
+    text-shadow: none;
+  }
+  
+  #playerManagementModal .close:hover {
+    color: #ffffff;
+    opacity: 1;
+  }
+  
+  /* Player Input Group */
+  #playerManagementModal .input-group {
+    margin-bottom: 20px;
+  }
+  
+  #playerManagementModal .input-group input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    color: white;
+    padding: 10px 15px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  #playerManagementModal .input-group input:focus {
+    background-color: rgba(0, 10, 20, 0.8);
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+    outline: none;
+  }
+  
+  #playerManagementModal .input-group-append button {
+    background-color: #00f2ff;
+    color: #000;
+    border: 1px solid #00f2ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  #playerManagementModal .input-group-append button:hover {
+    background-color: #00d9e6;
+    border-color: #00d9e6;
+  }
+  
+  /* Player List */
+  #playerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .player-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    background-color: rgba(0, 15, 30, 0.7);
+    border-left: 3px solid #00f2ff;
+    color: white;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+  }
+  
+  .player-list-item:hover {
+    background-color: rgba(0, 242, 255, 0.1);
+  }
+  
+  .player-list-item span {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .player-list-item button {
+    background-color: transparent;
+    color: rgba(255, 0, 51, 0.8);
+    border: 1px solid rgba(255, 0, 51, 0.8);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .player-list-item button:hover {
+    background-color: #ff0033;
+    color: #ffffff;
+  }
+  
+  /* Empty List Message */
+  .empty-list-message {
+    padding: 20px;
+    text-align: center;
+    color: #00f2ff;
+    font-style: italic;
+    border: 1px dashed rgba(0, 242, 255, 0.3);
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Scrollbar for player list */
+  #playerList::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #playerList::-webkit-scrollbar-track {
+    background: rgba(0, 15, 30, 0.7);
+  }
+  
+  #playerList::-webkit-scrollbar-thumb {
+    background: #00f2ff;
+    border-radius: 4px;
+  }
+  
+  #playerList::-webkit-scrollbar-thumb:hover {
+    background: #00d9e6;
+  }
+
+  /* Improved Bracket Styles */
+.bracket-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px; /* Increased spacing between rounds */
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    position: relative;
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.bracket-match {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Connector lines between matches */
+.bracket-match::after {
+    content: '';
+    position: absolute;
+    right: -50px; /* Match the gap between rounds */
+    top: 50%;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+/* Vertical connector lines */
+.bracket-match:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    width: 2px;
+    height: calc(100% + 20px); /* Adjusts based on spacing */
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+.bracket-match:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    bottom: 50%;
+    width: 2px;
+    height: calc(100% + 20px); /* Adjusts based on spacing */
+    background-color: rgba(0, 242, 255, 0.5);
+    z-index: 1;
+}
+
+/* Hide connectors for last round */
+.bracket-round:last-of-type .bracket-match::after,
+.bracket-round:last-of-type .bracket-match::before,
+.champion-round .bracket-match::after,
+.champion-round .bracket-match::before {
+    display: none;
+}
+
+.match-player {
+    background-color: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 10px 15px;
+    margin: 5px 0;
+    color: white;
+    min-width: 180px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Winner highlighting */
+.match-player.winner {
+    background-color: rgba(0, 242, 255, 0.3);
+    border: 1px solid #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+    font-weight: bold;
+}
+
+.match-player:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    border-color: #00f2ff;
+}
+
+.champion-slot {
+    background-color: rgba(0, 242, 255, 0.2);
+    border: 2px solid #00f2ff;
+    padding: 15px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+/* Help tooltip */
+.bracket-help {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: rgba(0, 15, 30, 0.8);
+    color: #00f2ff;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bracket-preview-content:hover .bracket-help {
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+    .bracket-grid {
+        gap: 30px;
+    }
+    
+    .bracket-match::after {
+        right: -30px;
+        width: 30px;
+    }
+    
+    .bracket-match:nth-child(odd)::before,
+    .bracket-match:nth-child(even)::before {
+        right: -30px;
+    }
+}
