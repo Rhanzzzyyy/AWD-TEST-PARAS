@@ -88,9 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const timeoutId = setTimeout(() => controller.abort(), 5000);
 
                 // Note: With no-cors mode, we can't read the response or set certain headers
-                await fetch('http://localhost:3000/api/GameHub/users', {
+                await fetch('https://demo-api-skills.vercel.app/api/GameHub/users', {
                     method: 'POST',
-                    mode: 'no-cors', // This is the critical change
+                     // This is the critical change
                     body: JSON.stringify({ 
                         name, 
                         email, 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Redirect after delay
                 setTimeout(() => {
-                    window.location.href = isOrganizer ? '../../../../index.html' : '/player-dashboard.html';
+                    window.location.href = isOrganizer ? '../../../../index.html' : '../../../../player.html';
                 }, 2000);
 
             } catch (error) {

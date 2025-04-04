@@ -73,7 +73,7 @@ function validateLoginForm(email, password) {
 async function authenticateUser(email, password) {
     try {
         // First check if user exists
-        const response = await fetch(`http://localhost:3000/api/GameHub/users/login/${encodeURIComponent(email)}`, {
+        const response = await fetch(`https://demo-api-skills.vercel.app/api/GameHub/users/login/${encodeURIComponent(email)}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'
