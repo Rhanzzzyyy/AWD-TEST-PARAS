@@ -115,7 +115,7 @@ function handleLoginSuccess(user, remember) {
     
     // Redirect to landing page after successful login
     setTimeout(() => {
-        window.location.href = '/AWD-TEST-PARAS/index.html'; // Adjust this path based on your deployment structure
+        window.location.href = '/AWD-TEST-PARAS/'; // Adjust this path based on your deployment structure
     }, 2000);
 }
 
