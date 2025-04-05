@@ -115,7 +115,7 @@ function handleLoginSuccess(user, remember) {
     
     // Redirect to landing page after successful login
     setTimeout(() => {
-        window.location.href = '../../../../index.html';
+        window.location.href = '/index.html'; // Adjust this path based on your deployment structure
     }, 2000);
 }
 
