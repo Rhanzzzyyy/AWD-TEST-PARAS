@@ -113,11 +113,27 @@ function handleLoginSuccess(user, remember) {
     showCyberNotification('ACCESS GRANTED', `Welcome ${user.name || user.email}!`, 'success');
     updateAuthUI();
     
+    // Special redirect for admin email
+    if (user.email.toLowerCase() === 'parasadmin@gmail.com') {
+        setTimeout(() => {
+            window.location.href = 'https://vincintt.github.io/Paras-Admin/';
+        }, 2000);
+    } else {
+        // Regular redirect for other users
+        setTimeout(() => {
+            window.location.href = '/AWD-TEST-PARAS/';
+        }, 2000);
+    }
+}
+
+    showCyberNotification('ACCESS GRANTED', `Welcome ${user.name || user.email}!`, 'success');
+    updateAuthUI();
+    
     // Redirect to landing page after successful login
     setTimeout(() => {
         window.location.href = '/AWD-TEST-PARAS/'; // Adjust this path based on your deployment structure
     }, 2000);
-}
+
 
 // Handle login error
 function handleLoginError(error) {

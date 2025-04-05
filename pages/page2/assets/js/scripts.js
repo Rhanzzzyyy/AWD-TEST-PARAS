@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Redirect after delay
                 setTimeout(() => {
-                    window.location.href = isOrganizer ? '../../../../index.html' : '../../../../player.html';
+                    window.location.href = isOrganizer ? './AWD-TEST-PARAS/' : '/AWD-TEST-PARAS/';
                 }, 2000);
 
             } catch (error) {
@@ -214,7 +214,7 @@ function updateNavbarLoginStatus() {
                 e.stopPropagation();
                 localStorage.removeItem('paraCurrentUser');
                 showNotification('You have been logged out', 'success');
-                setTimeout(() => window.location.href = '/', 1500);
+                setTimeout(() => window.location.href = '/AWD-TEST-PARAS/', 1500);
             });
         }
     }
