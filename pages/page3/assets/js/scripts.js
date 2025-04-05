@@ -161,7 +161,7 @@ function logoutUser() {
         
         // Redirect to home page after logout
         setTimeout(() => {
-            window.location.href = '../../../../index.html';
+            window.location.href = '/AWD-TEST-PARAS/';
         }, 1500);
     }, 1000);
 }
